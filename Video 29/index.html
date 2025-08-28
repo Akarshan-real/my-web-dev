@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Pompiere&display=swap');
+
+        * {
+            font-family: "Pompiere";
+            border-radius: 10px;
+        }
+
+        #whole {
+            border: 0.01em solid #a2b0c3;
+            background-color: rgb(220, 220, 220);
+            padding: 3px;
+            height: 80vmin;
+            width: 23vmax;
+            box-shadow: 0px 0px 11px -2.5px #727983;
+
+        }
+
+        #img {
+            margin: 1px;
+            height: 42%;
+            background-image: url('image.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        ul {
+            position: relative;
+            list-style: none;
+            display: flex;
+            font-size: x-small;
+            right: 30px;
+            bottom: 0px;
+            gap: 10px;
+        }
+
+        li {
+            color: #838383;
+            font-size: 8px;
+            letter-spacing: 1px;
+            padding: 1px 3px;
+            background-color: rgb(225, 225, 225);
+            outline: 1px solid rgb(220, 220, 220);
+        }
+
+        #heading {
+            position: relative;
+            left: 5px;
+        }
+
+        #heading>h1 {
+            font-size: 14px;
+            letter-spacing: 0.03em;
+        }
+
+        #para {
+            position: relative;
+            font-size: 12px;
+            color: #838383;
+            left: 6px;
+        }
+
+        #but {
+            text-align: center;
+        }
+
+        #but>button {
+            background-color: rgb(225, 225, 225);
+            color: rgb(0, 179, 255);
+            font-weight: bold;
+            border: none;
+            font-size: 9px;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="whole">
+        <div id="img"></div>
+        <div id="list">
+            <ul>
+                <li>Nature</li>
+                <li>Mountain</li>
+            </ul>
+        </div>
+        <div id="heading">
+            <h1>Incredibility of Nature</h1>
+        </div>
+        <div id="para">
+            <p>
+                Majestic mountains rise above, their snow-capped peaks touching the sky, while a serene lake flows
+                gently in front, reflecting nature’s beauty, whispering peace, and showcasing Earth’s timeless,
+                awe-inspiring splendor.
+            </p>
+        </div>
+        <div id="but">
+            <button>Read More</button>
+        </div>
+    </div>
+</body>
+
+</html>

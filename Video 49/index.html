@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Object fit and position</title>
+    <style>
+        .container {
+            height: 660px;
+            width: 650px;
+            border: 2px solid black;
+            background-color: rgb(106, 13, 219);
+            background-position: center center ;
+
+            background-image: url("https://images.pexels.com/photos/33537920/pexels-photo-33537920/free-photo-of-portrait-of-a-white-breasted-nuthatch-on-a-branch.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+
+            background-repeat: no-repeat;
+            background-clip: border-box;
+        }
+
+        img {
+            height: 660px;
+            width: 650px;
+             object-fit: cover; /* crops the image but looks good */
+            /* object-fit: fill; */
+            object-position: 50% 50%;
+            /* object-position: bottom right; */
+            /* object-fit: contain; leaves space but keep aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <!-- <img src="https://ichef.bbci.co.uk/ace/standard/2560/cpsprodpb/5b78/live/3cca1af0-ead0-11ef-8116-3df6b7ec9fa4.jpg" alt=""> -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+p{
+    background-color: rgb(125, 216, 116);
+}
+
+a{
+    background-color: rgb(147, 193, 233);
+}
+div{
+    background-color: burlywood;
+    text-decoration: underline;
+}
+span{
+    background-color: blue;
+    color: blanchedalmond;
+}

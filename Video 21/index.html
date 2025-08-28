@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Specificity</title>
+    <style>
+        /* The specificity of this is 1 */
+        h1 {
+            color: aqua;
+        }
+
+        /* The specificity of this is 1+10=11 */
+        
+        h1.yellow {
+            color: rgb(255, 89, 0);
+            /* color: black !important; */
+        }
+        
+        /* The specificity of this is 10 */
+        .cred {
+            color: red;
+        }
+        
+        /* The specificity of this is 10 */
+        .cpurple {
+            color: purple;
+        }
+        
+        /* The specificity of this is 10 {attribute} */
+        [data-x=a]{
+            background-color: yellow;
+            color: rgb(17, 212, 59);
+        }
+
+        /* The specificity of this class is 1+10+10+10+10=41*/
+        a.harryclass.rohan-class[href]:hover{
+            color: violet;
+        }
+        </style>
+</head>
+
+<body>
+    <div>
+        <h1 class="yellow cred cpurple" data-x="a"="">CSS Specificity</h1>
+    </div>
+</body>
+
+</html>

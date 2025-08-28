@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+    <style>
+        .container {
+            background-color: orangered;
+            width: 30vw;
+            height: 30vh;
+        }
+        .box {
+            width: 34px;
+            height: 45px;
+            /* background-color: aqua ; */
+            /* animation-name: Ac_2 ;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-out;
+            animation-delay: 1s;
+            animation-direction: reverse;
+            animation-play-state: paused; */
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: Ac_1
+             3s ease-in-out 2s 1 backwards ,
+             Ac_2
+             3s ease-in-out 2s 1 backwards;
+        }   
+
+        @keyframes Ac_2 {
+            form {
+                background-color: red;
+            }
+            to {
+                background-color: yellow;
+                /* transform: translateX(1000px); */
+            }
+        }
+        @keyframes Ac_1 {
+            0%{
+                transform: rotate(100deg);
+            }
+            25%{
+                transform: rotate(200deg);
+            }
+            50%{
+                transform: rotate(250deg);
+            }
+            75%{
+                transform: rotate(300deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            Box
+        </div>
+    </div>
+</body>
+</html>

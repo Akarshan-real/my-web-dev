@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(25, 25, 25);
+        }
+
+        .elements {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        .left {
+            padding-right: 6%;
+        }
+
+        .mid-div {
+            display: flex;
+            gap: 1.3em;
+            margin-right: 10%;
+            margin-left: 2%;
+        }
+
+        .middle  a{
+            font-weight: lighter;
+            font-size: 0.9em;
+            color: rgb(61, 61, 61);
+        }
+        
+        a:hover{
+            color: rgb(120, 120, 120);
+        }
+
+        .down {
+            width: 10px;
+            padding-left: 5px;
+            padding-bottom: 2%;
+        }
+        
+        .right-div {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        #globe {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8em;
+        }
+
+        #buy {  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 120px;
+            height: 40px;
+            border: 2px solid black;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.8em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="container">
+
+                <div class="elements left">
+                    <a href="">
+                        <img src="image.png" alt="img">
+                    </a>
+                </div>
+
+                <div class="mid-div">
+
+                    <div class="elements middle">
+                        <a href="">
+                            Products <img src="down.png" alt="" class="down">
+                        </a>
+                    </div>
+
+                    <div class="elements middle">
+                        <a href="">
+                            Pricing <img src="down.png" alt="" class="down">
+                        </a>
+                    </div>
+
+                    <div class="elements middle">
+                        <a href="">
+                            Resources <img src="down.png" alt="" class="down">
+                        </a>
+                    </div>
+
+                    <div class="elements middle last-middle">
+                        <a href="">
+                            Our company <img src="down.png" alt="" class="down">
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="right-div">
+
+                    <div class="elements right" id="buy">
+                        <a href="">
+                            BUY NOW
+                        </a>
+                    </div>
+
+                    <div class="elements right">
+                        <a href="">
+                            <div id="globe"> <img src="globe.png" alt="globe" width="22px"> English</div>
+                        </a>
+                    </div>
+
+                    <div class="elements right">
+                        <a href="">
+                            <img src="search-icon.png" alt="" width="30px">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+</body>
+
+</html>
