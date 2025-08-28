@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CSS Filters</title>
+    <style>
+        img {
+            /* filter: blur(10px); */
+            width: 300px;
+        }
+        .img1{
+            filter: brightness(122%);
+        }
+        .img2{
+            filter: opacity(50%);
+        }
+        .img3{
+            filter: grayscale(20%);
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <img class="img1" src="https://media.istockphoto.com/id/1399246824/photo/digital-eye-wave-lines-stock-background.jpg?s=612x612&w=0&k=20&c=1cW5xuLcb6HPDj6CLQQFBvGK5_fJvx9eA2egik-3hAc=" alt="">
+        <img class="img2" src="https://m.media-amazon.com/images/M/MV5BMTg0MDc3ODUwOV5BMl5BanBnXkFtZTcwMTk2NjY4Nw@@._V1_.jpg" alt="">
+        <img class="img3" src="https://assets.gqindia.com/photos/5fdc6eb81c519f6c10ba2d2f/16:9/w_2560%2Cc_limit/Hrithik-Roshan%2520(2).jpg" alt="">
+    </div>
 </body>
 </html>
