@@ -115,7 +115,7 @@ nav .si {
     z-index: 10;
 }
 
-.hero> :nth-child(1) {
+.hero > :nth-child(1) {
     letter-spacing: 0.7px;
     font-size: clamp(12px, 3vw, 80px);
     font-weight: bolder;
@@ -126,20 +126,21 @@ nav .si {
     text-align: center;
 }
 
-.hero> :nth-child(2) {
+.hero > :nth-child(2) {
     font-size: clamp(8px, 1vw , 40px);
     margin-bottom: 20px;
     text-align: center;
 }
 
-.hero> :nth-child(3) {
+.hero > :nth-child(3) {
     font-size: clamp(10px , 0.7vw , 60px);
+    width: clamp(30px , 50vw , 1300px);
     font-weight: 500;
     text-align: center;
 }
 
-.hero> :nth-child(4) {
-    margin-top: 10px;
+.hero > :nth-child(4) {
+    margin-top: clamp(5px , 1vh , 30px);
     justify-content: center;
     align-items: center;
     gap: 7px;
@@ -147,7 +148,7 @@ nav .si {
     text-align: center;
 }
 
-.hero> :nth-child(4) input {
+.hero > :nth-child(4) input {
     flex: 1;
     background: rgba(16, 16, 16, 0.652);
 
@@ -155,11 +156,13 @@ nav .si {
     border: 0.5px solid grey;
     outline: none;
 
-    max-width: 400px;
+    /* max-width: 400px; */
+    width: clamp(60px , 15vw , 400px);
     font-size: clamp(8px , 0.9vw , 24px);
     height: 100%;
+    height: clamp(30px , 5vh , 100%);
 
-    padding-right: clamp(20px , 10vw , 20vw);
+    padding-right: clamp(15px , 10vw , 20vw);
     padding-left: 15px;
 }
 .hero> :nth-child(4) input:focus{
@@ -180,6 +183,7 @@ nav .si {
     border: none;
     border-radius: 4px;
     height: 100%;
+    height: clamp(30px , 5vh , 100%);
 
     font-size: clamp(8px , 1vw , 24px);
     font-weight: 600;
@@ -262,7 +266,7 @@ nav .si {
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
-    font-size: 1.5em;
+    font-size: clamp(8px , 2.5vh , 2rem);
     font-weight: 600;
     font-family: 'Martel Sans';
     width: clamp(100px , 75vw , 1900px);
@@ -275,62 +279,26 @@ nav .si {
     animation: faq 150ms 0ms ease-in 1 forwards;
     cursor: pointer;
 }
+
 .asking {
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-
-.asking :nth-child(1){
+.asking :first-child{
     text-align: center;
     color: white;
     margin-top: 10vh;
-    margin-bottom: 20px;
     font-size: large;
 }
-
-.asking form {
-    justify-content: center;
-    align-items: center;
+.asking input {
+    
 }
- 
-.asking :nth-child(2) input {
-    flex: 1;
-    background: rgba(16, 16, 16, 0.652);
+.asking input::placeholder {
 
-    border-radius: 4px;
-    border: 0.5px solid grey;
-    outline: none;
-
-    max-width: 400px;
-    font-size: clamp(8px , 0.9vw , 24px);
-    height: 100%;
-
-    padding-right: clamp(20px , 10vw , 20vw);
-    padding-left: 15px;
 }
-.asking :nth-child(2)  input:focus{
-    outline: 2px solid white;
-    outline-offset: 2px;
-}
-.asking :nth-child(2)  button {
-    cursor: pointer;
 
-    background-color: rgb(229, 9, 20);
-    color: white;
 
-    border: none;
-    border-radius: 4px;
-    height: 100%;
 
-    font-size: clamp(8px , 1vw , 24px);
-    font-weight: 600;
-
-    padding: 0px 30px;
-}
-.asking :nth-child(2)  button:hover {
-    background-color: rgb(200, 0, 15);
-}
 
 @media screen and (max-width:650px) {
     nav {
