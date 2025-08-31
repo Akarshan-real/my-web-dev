@@ -405,6 +405,9 @@ footer {
 #captcha a {
     color: rgb(68, 142, 244);
 }
+#captcha a:active {
+    color: red;
+}
 
 @media screen and (max-width:650px) {
     nav {
