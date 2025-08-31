@@ -63,6 +63,7 @@ nav .lang:focus{
 }
 
 nav .si {
+    cursor: pointer;
     font-weight: 600;
     font-size: clamp(10px , 0.8vw , 2vw);
     color: white;
@@ -155,6 +156,7 @@ nav .si {
     border-radius: 4px;
     border: 0.5px solid grey;
     outline: none;
+    color: white;
 
     /* max-width: 400px; */
     width: clamp(60px , 15vw , 400px);
@@ -206,10 +208,10 @@ nav .si {
     align-items: center;
 }
 .trendingnow h2 {
-    transform: translateX(12vw);
+    transform: translateX(18vw);
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
-    font-size: clamp(8px , 1.5em , 3em);
+    font-size: clamp(8px , 2em , 48px);
     width: 100%;
 }
 .trending {
@@ -217,7 +219,7 @@ nav .si {
     left: 50%;
     transform: translateX(-50%);
     align-items: center;
-    width: 73vw;
+    width: 60vw;
     height: 310px;
     gap: 30px;
 
@@ -258,8 +260,8 @@ nav .si {
 .faq {
     flex-direction: column;
     gap: 8px;
-    width: 75vw;
-    height: 50vh;
+    width: 60vw;
+    height: auto;
     margin: auto;
 }
 .questions{
@@ -269,8 +271,8 @@ nav .si {
     font-size: clamp(8px , 2.5vh , 2rem);
     font-weight: 600;
     font-family: 'Martel Sans';
-    width: clamp(100px , 75vw , 1900px);
-    height: clamp(30px , 9vh , 10vh);
+    width: clamp(100px , 60vw , 1900px);
+    height: clamp(30px, 10vh, 100px);
     background-color: rgb(35, 35, 35);
     color: white;
     justify-content: space-between;
@@ -280,25 +282,129 @@ nav .si {
     cursor: pointer;
 }
 
+
 .asking {
+    font-family: 'Martel Sans';
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 25px;
 }
-.asking :first-child{
+#askingDiv1{
     text-align: center;
     color: white;
     margin-top: 10vh;
     font-size: large;
 }
-.asking input {
-    
+#askingDiv2 {
+    height: 100px;
 }
-.asking input::placeholder {
-
+#askingDiv2 form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#askingDiv2 input {
+    width: clamp(20px, 35vw, 1000px);
+    padding: 20px 0px 20px 20px;
+    border: 1px solid rgb(61, 61, 61);
+    background: rgba(16, 16, 16, 0.652);
+    border-radius: 4px;
+    color: white;
+    font-size: clamp(8px , 1.5em , 30px) ;
+    text-align: left;
+    height: 100%;
+    margin-right: 5px;
+}
+#askingDiv2 input::placeholder {
+    padding: 0px 100px 0px 0px;
+    width: 15vw;
+    color: rgb(192, 192, 192);
+}
+#askingDiv2 input:focus{
+    outline-offset: 2px;
+    outline: 2px solid white;
+}
+#askingDiv2 button {
+    height: 100%;
+    cursor: pointer;
+    padding: 18px 45px;
+    border: none;
+    background-color: rgb(229, 9, 20);
+    color: white;
+    border-radius: 4px;
+    font-size: clamp(8px, 1.5vw, 48px);
+}#askingDiv2 button span {
+    /* font-size: clamp(8px , 2em , 10vw); */
+    font-weight: bolder;
+}
+#askingDiv2 button:hover {
+    background-color: rgb(200, 0, 15);
 }
 
+footer {
+    width: 100vw;
+    height: 50vh;
+    margin-top: 30px;
+}
+#footerdiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 
+    position: relative;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-60%);
+    height: 100%;
+}
+#call {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+#call a {
+    text-decoration: none;
+}
+#links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+    column-gap: 10rem;
+    row-gap: 1rem;
+}
+#links a {
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.7);
+}
+.bottomlang {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 
+    border-radius: 4px;
+    border: none;
+    color: white;
+    border: 1px solid rgb(115, 115, 115);
+    background-color: rgba(69, 69, 69, 0.41);
+    padding: 5px 12px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.bottomLangDiv :focus {
+    outline-offset: 2px;
+    outline: 2px solid white;
+}
+#NI {
+    color: rgba(255, 255, 255, 0.7);
+}
+#captcha {
+    color: rgba(255, 255, 255, 0.7);
+}
+#captcha a {
+    color: rgb(68, 142, 244);
+}
 
 @media screen and (max-width:650px) {
     nav {
@@ -315,6 +421,17 @@ nav .si {
         flex-direction: column;
         justify-content: start;
         height: calc(4*310px + 40px);
+    }
+    #askingDiv2 form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    #askingDiv2 form button {
+        text-align: center;
     }
 }
 
