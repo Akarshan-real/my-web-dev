@@ -13,7 +13,7 @@ console.log(document.querySelectorAll(".box")) ;
 
 document.querySelectorAll(".box").forEach (e => {
     e.style.backgroundColor = "green" ;
-})
+});
 
 console.log(document.getElementsByTagName("div")) ;
 
@@ -21,3 +21,4 @@ console.log(worldChampion[2].matches("#two\\.5")) ;
 console.log(worldChampion[2].closest("html")) ;
 
 console.log(document.querySelector(".container").contains(worldChampion[1])) ;
+   

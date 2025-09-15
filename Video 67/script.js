@@ -16,5 +16,4 @@ console.log(cont.lastElementChild.parentElement) ;
 
 cont.firstElementChild.style.color = "red" ;
 
-
 console.log(document.body.firstElementChild.children[3].nextElementSibling); // next or previous
