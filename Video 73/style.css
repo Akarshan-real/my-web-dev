@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container { 
+    width: 100vw;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.878);
+}
+.card {
+    display: flex;
+    gap: 10px;
+    width: 80vw;
+    height: inherit;
+    padding: 10px 10px;
+}
+.thumbnail {
+    width: 11vw;
+    height: 11vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    
+    background-image: url("https://i.ytimg.com/vi/Xoz_KYfaSkk/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCdR53-XLNNOfdLPnPoIIVBKTYuGQ") ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+
+    border-radius: 5px;
+}
+#duration {
+    margin-bottom: 2%;
+    margin-right: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.706);
+    color: white;
+    padding: 3px 6px ;
+    border-radius: 5px;
+}
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: "Roboto", "Arial", sans-serif ;
+}
+.details > div:nth-child(1) {
+    color: white ;
+    font-size: clamp(10px,1.2rem,24px) ;
+}
+.details > div:nth-child(2) {
+    color: rgb(171, 171, 171) ;
+}
