@@ -87,7 +87,7 @@
         let audio = document.getElementById("niga");
         let button = document.querySelector("button");
         button.addEventListener("click", (e) => {
-            if (document.querySelector("input").value == "What is Arya Das ?") {
+            if (document.querySelector("input").value == "What is Arya Das ?".toLocaleLowerCase()) {
                 audio.play();
             }
         })
