@@ -7,6 +7,9 @@
     background-color: black;
     width: 100vw;
     height: 100vh;
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/495/794/416/artistic-vector-black-cat-wallpaper-preview.jpg);
+    background-size: cover;
+    background-position: center center;
 }
 .area > :first-child {
     display: flex;
@@ -23,6 +26,7 @@
     outline: 2px solid #008000;
     outline-offset: 2px;
     font-family: 'hack';
+    text-align: center;
 }
 
 .text {

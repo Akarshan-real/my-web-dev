@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        // function loadSrc(link1) {
+        //     return new Promise((resolve,reject) => {
+        //         const link = document.createElement("script") ;
+        //         link.src = link1 ; 
+        //         document.body.appendChild(link) ;
+        //         resolve(link1 + 'added to doc') ;
+        //     })
+        // }
+
+        function rejector() {
+            return new Promise((resolve, reject) => {
+                if (1 < 2) {
+                    setTimeout(() => {
+                        reject('Rejected');
+                    }, 3000);
+                }
+                else {
+                    resolve() ;
+                }
+            })
+        }
+
+        async function main() {
+            // let x = await loadSrc('script.js') ;
+            // console.log('Loaded') ;
+            try {
+                rejector().then((message)=>{
+                    console.log(message) ;
+                });
+            } catch (error) {
+                console.log(error);
+            }
+
+        }
+        main();
+
+
+    </script>
+</body>
+
+</html>
