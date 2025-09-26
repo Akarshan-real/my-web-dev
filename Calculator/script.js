@@ -9,34 +9,47 @@ let blinking = setInterval(() => {
     }
 }, 700);
 
+function parseNumber(x) {
+    return x.includes(".") ? parseFloat(x).toFixed(6) : parseInt(x);
+}
+
 let calculationArray = [];
 const butt = document.querySelectorAll(".buttons");
 
 let storing = "";
 let lastNumber = "";
 
-function parseNumber(x) {
-    return x.includes(".") ? parseFloat(x) : parseInt(x);
-}
 
-function displaySize(x) {
+function displaySize(x,check) {
     let str = String(x);
-    if (str.length > 15) {
-        display.style.fontSize = "2.5rem";
+    if (str.length > 20) {
+        display.style.fontSize = "1rem";
+    }
+    else if (str.length > 15) {
+        display.style.fontSize = "1.5rem";
     }
     else if (str.length > 10) {
         display.style.fontSize = "2rem";
     }
     else if (str.length > 6) {
-        display.style.fontSize = "1.5rem";
+        display.style.fontSize = "2.5rem";
     }
-    return parseNumber(str);
+    else if (str.length > 0) {
+        display.style.fontSize = "3rem";
+    }
+    else {
+        display.style.fontSize = "0.5rem";
+    }
+    if (check == "num") {
+        return parseNumber(str);
+    }
+    else {
+        return str ;
+    }
 }
 
 butt.forEach((b) => {
     b.addEventListener("click", () => {
-
-
 
         let id = b.id;
 
@@ -44,6 +57,8 @@ butt.forEach((b) => {
         console.log(b, id);
 
         if (id === "equals") {
+
+            lastNumber = calculationArray[0];
 
             if (lastNumber === "") {
                 return;
@@ -59,140 +74,87 @@ butt.forEach((b) => {
                     display.innerText = lastNumber;
                 }
                 else {
-                    display.innerText = displaySize(calculationArray[0]);
+                    display.innerText = displaySize(calculationArray[0],"num");
                 }
-                let span = document.createElement("span") ;
-                span.innerText = "|" ;
-                span.style.width = "10px" ;
-                span.style.transform = "translateX(-20px)"
+
+                let span = document.createElement("span");
+                span.innerText = "|";
                 display.appendChild(span);
+
                 setInterval(() => {
-                    if (span.innerText.endsWith("|")){
-                        span.innerText = " " ;
+                    if (span.innerText.endsWith("|")) {
+                        span.innerText = " ";
                     }
                     else {
-                        span.innerText = "|" ;
+                        span.innerText = "|";
                     }
                 }, 700);
 
-                lastNumber = calculating(calculationArray);
                 storing = "";
                 calculationArray = [];
                 return;
             }
         }
 
-        if (id === "addition") {
+        if (["addition", "multiply", "subtraction", "divide"].includes(id)) {
             calculationArray.push(storing);
             lastNumber = storing;
             storing = "";
-            display.innerText = "+" ;
-
-            calculationArray.push(content);
-        }
-        else if (id === "subtraction") {
-            calculationArray.push(storing);
-            lastNumber = storing;
-            storing = "";
-            display.innerText = "-" ;
-
-            calculationArray.push(content);
-        }
-        else if (id === "multiply") {
-            calculationArray.push(storing);
-            lastNumber = storing;
-            storing = "";
-            display.innerText = "x" ;
-
-            calculationArray.push("*");
-        }
-        else if (id === "divide") {
-            calculationArray.push(storing);
-            lastNumber = storing;
-            storing = "";
-            display.innerText = "/" ;
-
-            calculationArray.push(content);
+            calculationArray.push(b.dataset.value);
+            let text = "";
+            for (const i of calculationArray) {
+                text += i;
+                display.innerText = displaySize(text,"text");
+            }
         }
         else {
             clearInterval(blinking);
             storing = storing + content;
-            display.innerText = storing ;
-            console.log(calculationArray);
+            let text = "";
+            for (const i of calculationArray) {
+                text += i;
+            }
+            display.innerText = displaySize((text + storing),"text");
         }
-
-
     })
 
     function calculating(array) {
         if (array == "") {
             return 0;
         }
-        let a = 0;
-        let b = 0;
         for (let i = 0; i < array.length; i++) {
-            if (array[i] === "*" && i != 0 && i != array.length - 1) {
-                a = parseNumber(array[i - 1]);
-                b = parseNumber(array[i + 1]);
+            if (i > 0 && i < array.length) {
 
-                array.splice(i - 1, 3, mul(a, b));
-            }
-            else if (array[i] === "/" && i != 0 && i != array.length - 1) {
-                a = parseNumber(array[i - 1]);
-                b = parseNumber(array[i + 1]);
+                let a = parseNumber(array[i - 1]);
+                let b = parseNumber(array[i + 1]);
 
-                try {
-                    array.splice(i - 1, 3, div(a, b));
+                if (array[i] === "*") {
+                    array.splice(i - 1, 3, (a * b));
                 }
-                catch (error) {
-                    display.style.fontSize = "1.3rem" ;
-                    display.innerText = error;
-                    break;
+
+                else if (array[i] === "/") {
+                    try {
+                        array.splice(i - 1, 3, (a / b));
+                    }
+                    catch (error) {
+                        display.style.fontSize = "1.3rem";
+                        display.innerText = error;
+                        break;
+                    }
                 }
-            }
-            else if (array[i] === "+" && i != 0 && i != array.length - 1) {
-                a = parseNumber(array[i - 1]);
-                b = parseNumber(array[i + 1]);
 
-                array.splice(i - 1, 3, add(a, b));
-            }
-            else if (array[i] === "-" && i != 0 && i != array.length - 1) {
-                a = parseNumber(array[i - 1]);
-                b = parseNumber(array[i + 1]);
+                else if (array[i] === "+") {
+                    array.splice(i - 1, 3, (a + b));
+                }
 
-                array.splice(i - 1, 3, sub(a, b));
+                else if (array[i] === "-") {
+                    array.splice(i - 1, 3, (a - b));
+                }
             }
         }
-
-    }
-
-    function add(...arr) {
-        return arr.reduce((a, b) => {
-            return a + b;
-        })
-    }
-    function sub(...arr) {
-        return arr.reduce((a, b) => {
-            return a - b;
-        })
-    }
-    function mul(...arr) {
-        return arr.reduce((a, b) => {
-            return a * b;
-        })
-    }
-    function div(...arr) {
-        return arr.reduce((a, b) => {
-            if (a == 0 || b == 0) {
-                throw "ZeroDivisionError";
-            }
-            else {
-                return a / b;
-            }
-        })
     }
 })
 
-document.getElementById("refresh").addEventListener("click",()=>{
+document.getElementById("refresh").addEventListener("click", () => {
     window.location.reload();
 })
