@@ -1,0 +1,126 @@
+<!-- 14. The Window Scroller:
+     You are developing a single-page application with a smooth scrolling effect. Implement a function named smoothScrollToTop that smoothly scrolls the window to the top when called. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll to top</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: rgb(178, 151, 101);
+        }
+
+        .title>h1 {
+            text-decoration: underline;
+            text-decoration-style: double;
+        }
+
+        .mainShit {
+            background-color: rgb(178, 151, 101);
+            width: 100%;
+            height: auto;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+
+        .mainShit pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        #toTop {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(143 93 21);
+            padding: 5px 10px;
+            border: 1px solid black;
+        }
+
+        #toTop:hover {
+            background-color: rgb(178, 151, 101);
+        }
+
+        #toTop:active {
+            background-color: rgb(75, 44, 3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <h1>Coffee</h1>
+    </div>
+    <div class="mainShit">
+        <pre>Coffee is a beverage brewed from roasted, ground coffee beans. Darkly colored, bitter, and slightly acidic, coffee has a stimulating effect on humans, primarily due to its caffeine content, but decaffeinated coffee is also commercially available. There are also various coffee substitutes.
+
+Coffee production begins when the seeds from coffee cherries (the Coffea plant's fruits) are separated to produce unroasted green coffee beans. The "beans" are roasted and then ground into fine particles. Coffee is brewed from the ground roasted beans, which are typically steeped in hot water before being filtered out. It is usually served hot, although chilled or iced coffee is common. Coffee can be prepared and presented in a variety of ways (e.g., espresso, French press, caffè latte, or already-brewed canned coffee). Sugar, sugar substitutes, milk, and cream are often added to mask the bitter taste or enhance the flavor.
+
+Though coffee is now a global commodity, it has a long history tied closely to food traditions around the Red Sea. Credible evidence of coffee drinking as the modern beverage subsequently appears in modern-day Yemen in southern Arabia in the middle of the 15th century in Sufi shrines, where coffee seeds were first roasted and brewed in a manner similar to how it is now prepared for drinking.[4] The coffee beans were procured by the Yemenis from the Ethiopian Highlands via coastal Somali intermediaries, and cultivated in Yemen. By the 16th century, the drink had reached the rest of the Middle East and North Africa, later spreading to Europe.
+
+The two most commonly grown coffee bean types are C. arabica and C. robusta.[5] Coffee plants are cultivated in over 70 countries, primarily in the equatorial regions of the Americas, Southeast Asia, the Indian subcontinent, and Africa. Green, unroasted coffee is traded as an agricultural commodity. The global coffee industry is worth $495.50 billion, as of 2023.[6] In 2023, Brazil was the leading grower of coffee beans, producing 31% of the world's total, followed by Vietnam. While coffee sales reach billions of dollars annually worldwide, coffee farmers disproportionately live in poverty. Critics of the coffee industry have also pointed to its negative impact on the environment and the clearing of land for coffee-growing and water use.
+
+Etymology
+
+Green coffee describes the beans before roasting.
+The word coffee entered the English language in 1582 via the Dutch koffie, borrowed from the Ottoman Turkish kahve (قهوه), borrowed in turn from the Arabic qahwah (قَهْوَة).[7] Medieval Arabic lexicons traditionally held that the etymology of qahwah meant 'wine', given its distinctly dark color, and was derived from the verb qahiya (قَهِيَ), 'to have no appetite'.[8] The word qahwah most likely meant 'the dark one', referring to the brew or the bean; qahwah is not the name of the bean, which are known in Arabic as bunn and in Cushitic languages as būn. Semitic languages have the root qhh, 'dark color', which became a natural designation for the beverage. Its cognates include the Hebrew qehe(h) 'dulling' and the Aramaic qahey ('give acrid taste to').[8] Although etymologists have connected it with a word meaning 'wine', it is also thought to be from the Kaffa region of Ethiopia.[9]
+
+The terms coffee pot and coffee break originated in 1705 and 1952, respectively.[10]
+
+History
+Main article: History of coffee
+Legendary accounts
+Main article: Kaldi
+There are multiple anecdotal origin stories which lack evidence. In a commonly repeated legend, Kaldi, a 9th-century Ethiopian goatherd, first observed the coffee plant after seeing his flock energized by chewing on the plant.[4] This legend does not appear before 1671, first being related by Antoine Faustus Nairon, a Maronite professor of Oriental languages and author of one of the first printed treatises devoted to coffee, De Saluberrima potione Cahue seu Cafe nuncupata Discurscus (Rome, 1671), indicating the story is likely apocryphal.[11][12][4] Another legend attributes the discovery of coffee to a Sheikh Omar. Starving after being exiled from Mokha (a port city in what is now Yemen), Omar found berries. After attempting to chew and roast them, Omar boiled them, which yielded a liquid that revitalized and sustained him.[1]
+
+Historical transmission
+
+A 1652 handbill advertising coffee for sale in St. Michael's Alley, London
+The earliest recorded reference to the coffee bean and its qualities appears in a treatise by Al-Razi, which describes the bean—referred to as "bunchum"—as "hot and dry and very good for the stomach".[1] One of the most important of the early writers on coffee was Abd al-Qadir al-Jaziri, who in 1587 compiled a work tracing the history and legal controversies of coffee entitled Umdat al Safwa fi hill al-qahwa in which he claims that coffee originated "in the land of Ibn Sa‘d al-Dın and the country of the Abyssinians and of the Jabart and other places of the land of ‘Ajam, but the time of its first [use] is unknown, nor do we know the reason".[13]
+
+Credible evidence of coffee drinking or knowledge of the coffee tree appears in the middle of the 15th century in the accounts of Ahmed al-Ghaffar in Yemen,[4] where coffee seeds were first roasted and brewed in a similar way to how it is prepared now. Coffee was used by Sufi circles to stay awake for their religious rituals.[14] Accounts differ on the origin of the coffee plant before its appearance in Yemen. From Ethiopia, coffee could have been introduced to Yemen via trade across the Red Sea.[15] One account credits Muhammad Ibn Sa'd for bringing the beverage to Aden from the African coast,[16] other early accounts say Ali ben Omar of the Shadhili Sufi order was the first to introduce coffee to Arabia.[16][17]
+
+16th-century Islamic scholar Ibn Hajar al-Haytami notes in his writings that a beverage called qahwa developed from a tree in the Zeila region located in the Horn of Africa.[14] Coffee was first exported from Ethiopia to Yemen by Somali merchants from Berbera and Zeila in modern-day Somaliland, which was procured from Harar and the Abyssinian interior. According to Captain Haines, who was the colonial administrator of Aden (1839–1854), Mokha historically imported up to two-thirds of its coffee from Berbera-based merchants before the coffee trade of Mokha was captured by British-controlled Aden in the 19th century. After that, much of the Ethiopian coffee was exported to Aden via Berbera.[18]
+
+By the 16th century, coffee had reached the rest of the Middle East and North Africa.[19] The first coffee seeds were smuggled out of the Middle East by Sufi Baba Budan from Yemen to India during the time. Before then, all exported coffee was boiled or otherwise sterilized. Portraits of Baba Budan depict him as having smuggled seven coffee seeds by strapping them to his chest. The first plants from these smuggled seeds were planted in Mysore.
+
+Coffee had spread to Italy by 1600 and then to the rest of Europe, Indonesia, and the Americas.[20]
+
+In 1583, Leonhard Rauwolf, a German physician, gave this description of coffee after returning from a ten-year trip to the Near East:
+
+A beverage as black as ink, useful against numerous illnesses, particularly those of the stomach. Its consumers take it in the morning, quite frankly, in a porcelain cup passed around and from which each one drinks a cupful. It is composed of water and the fruit from a bush called bunnu.
+
+— Léonard Rauwolf, Reise in die Morgenländer (in German)
+Thriving trade brought many goods, including coffee, from the Ottoman Empire to Venice. From there it was introduced to the rest of Europe. Coffee became more widely accepted after it was deemed a Christian beverage by Pope Clement VIII in 1600, despite appeals to ban the "Muslim drink".
+
+The first European coffee house outside of the Ottoman Empire opened in Venice in 1647.[21] Within the Ottoman Empire itself, the first coffeehouse opened in 1555 in Tahtakale, Istanbul.[22] Since Tahtakale is to the West of the Bosporus strait, this would likely have been the first coffee house in Europe.
+</pre>
+    </div>
+    <button id="toTop">To The Top 🔝</button>
+    <script>
+        document.getElementById("toTop").addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" })
+        })
+    </script>
+</body>
+
+</html>
