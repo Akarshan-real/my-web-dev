@@ -70,18 +70,18 @@
             ${Math.ceil(0 + Math.random()*255)})` ;
         }
 
-        // let a = setInterval(() => {
-        //     document.querySelector(".container").style.backgroundColor = getRandomColor() ;
-        //     document.querySelector(".childContainer").style.backgroundColor = getRandomColor() ;
-        //     document.querySelector(".child").style.backgroundColor = getRandomColor() ;
-
-        // }, 500);
-        let a = setTimeout(() => {
+        let a = setInterval(() => {
             document.querySelector(".container").style.backgroundColor = getRandomColor() ;
             document.querySelector(".childContainer").style.backgroundColor = getRandomColor() ;
             document.querySelector(".child").style.backgroundColor = getRandomColor() ;
 
-        }, 5000);
+        }, 500);
+        // let a = setTimeout(() => {
+        //     document.querySelector(".container").style.backgroundColor = getRandomColor() ;
+        //     document.querySelector(".childContainer").style.backgroundColor = getRandomColor() ;
+        //     document.querySelector(".child").style.backgroundColor = getRandomColor() ;
+
+        // }, 5000);
 
         //clearTimeout(n) $ clearInterval(n) stops from happening
 
