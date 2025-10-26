@@ -1,38 +1,32 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs/promises'
+import path from 'path'
 
 let myPath = "E:\\Sigma Web Dev\\Video 91";
-let collection = ['index.html','style.css','script.js','file.txt','meow.png','bhow.jpg'] ;
+let collection = ['index.html', 'style.css', 'script.js', 'file.txt', 'meow.png', 'bhow.jpg'];
 
-organizer(collection,myPath);
+organizer(collection, myPath);
 
-function organizer(collection,yourPath) {
+async function organizer(collection, yourPath) {
     const extArray = [];
 
-    collection.forEach(element => {
+    for (const element of collection) {
         const e = path.extname(element);
         if (!(extArray.includes(e))) {
             extArray.push(e);
-        };
-    });
-
-    extArray.forEach((e) => {
-        const folderPath = path.join(yourPath, String(e).slice(1));
-        if (!(fs.existsSync(folderPath))) {
-            fs.mkdirSync(folderPath) ;
         }
-    });
+    };
 
-    collection.forEach((e) => {
-        const folder = path.join(yourPath , path.extname(e).slice(1)) ;
+    for (const e of extArray) {
+        const folderPath = path.join(yourPath, String(e).slice(1));
+        try {
+            await fs.access(folderPath);
+        } catch {
+            await fs.mkdir(folderPath);
+        }
+    };
 
-        fs.renameSync(path.join(yourPath,e) , path.join(folder,e) , (err) => {
-            if (err) {
-                console.log("Nope ", e ,err) ;
-            }
-            else {
-                console.log("Yup ") ;
-            }
-        });
-    });
+    for (const e of collection) {
+        const folder = path.join(yourPath, path.extname(e).slice(1));
+        await fs.rename(path.join(yourPath, e), path.join(folder, e));
+    };
 }

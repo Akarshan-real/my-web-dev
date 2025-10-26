@@ -10,7 +10,6 @@ fs.writeFile("harry2.txt", "Harry is a great boy too", () => {
     })
 });
 
-
 fs.appendFile('harry2.txt', "harryrobo", (error, data) => {
     console.log(data);
 });
