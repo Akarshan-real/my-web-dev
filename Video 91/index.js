@@ -2,31 +2,38 @@ import fs from 'fs/promises'
 import path from 'path'
 
 let myPath = "E:\\Sigma Web Dev\\Video 91";
-let collection = ['index.html', 'style.css', 'script.js', 'file.txt', 'meow.png', 'bhow.jpg'];
+let collection = await fs.readdir(myPath);
 
-organizer(collection, myPath);
+clutter(collection, myPath);
 
-async function organizer(collection, yourPath) {
+async function clutter(collection, yourPath) {
     const extArray = [];
 
     for (const element of collection) {
-        const e = path.extname(element);
+        const e = path.extname(element).slice(1);
+
+        if (e == "js" || e == 'json' || e.length == 0) {
+            continue;
+        }
+
         if (!(extArray.includes(e))) {
             extArray.push(e);
-        }
-    };
-
-    for (const e of extArray) {
-        const folderPath = path.join(yourPath, String(e).slice(1));
-        try {
-            await fs.access(folderPath);
-        } catch {
-            await fs.mkdir(folderPath);
+            const folderPath = path.join(yourPath, e);
+            try {
+                await fs.access(folderPath);
+            } catch {
+                await fs.mkdir(folderPath);
+            }
         }
     };
 
     for (const e of collection) {
-        const folder = path.join(yourPath, path.extname(e).slice(1));
+        const type = path.extname(e).slice(1) ;
+        if (type.length == 0 || type == 'js' || type == 'json') {
+            continue;
+        }
+
+        const folder = path.join(yourPath, type);
         await fs.rename(path.join(yourPath, e), path.join(folder, e));
     };
 }

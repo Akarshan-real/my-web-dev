@@ -9,7 +9,8 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
     let siteName = "Nike";
     let searchText = "Search Now";
-    res.render("index", { siteName : siteName, searchText : searchText });
+    let arr = ["WoooUU",54,65];
+    res.render("index", { siteName : siteName, searchText : searchText , arr });
 });
 
 app.get('/blog/:slug', (req, res) => {
