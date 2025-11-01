@@ -35,5 +35,6 @@ async function clutter(collection, yourPath) {
 
         const folder = path.join(yourPath, type);
         await fs.rename(path.join(yourPath, e), path.join(folder, e));
+        
     };
 }
