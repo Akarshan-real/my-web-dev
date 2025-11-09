@@ -5,8 +5,8 @@ document.getElementById('entryButton').addEventListener("click", async () => {
     if (thing.ok) { 
         const msg = await thing.json();
         alert("Success! Server says: " + msg.msg);
-    } else {
+    } 
+    else {
         alert("Oops! Something went wrong. Server status: " + thing.status);
     }
 });
-

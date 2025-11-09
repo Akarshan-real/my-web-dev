@@ -8,5 +8,5 @@ const checkSchema = new mongoose.Schema({
     isManager: { type: Boolean, required: true, default: false }
 });
 
-const check = mongoose.model("ex16", checkSchema);
+const check = mongoose.model("ex16",checkSchema);
 export default check;
