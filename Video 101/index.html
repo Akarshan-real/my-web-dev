@@ -1,22 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home / X</title>
-    <link rel="stylesheet" href="css/output.css">
+    <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
 </head>
-<body>
-    <div class="main">
-        <div class="first">
 
+<body class="bg-black text-white" style="font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+    <div class="main flex container mx-auto">
+        <div class="first flex flex-col gap-6">
+
+            <div class="logo w-full">
+                <svg viewBox="0 0 24 24" aria-hidden="true"
+                    class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-lrsllp r-1nao33i r-16y2uox r-8kz0gk invert w-10">
+                    <g>
+                        <path
+                            d="M21.742 21.75l-7.563-11.179 7.056-8.321h-2.456l-5.691 6.714-4.54-6.714H2.359l7.29 10.776L2.25 21.75h2.456l6.035-7.118 4.818 7.118h6.191-.008zM7.739 3.818L18.81 20.182h-2.447L5.29 3.818h2.447z">
+                        </path>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="sideBar flex flex-col gap-6">
+                <ul class="flex flex-col items-start gap-6">
+                    <li class="flex justify-center items-center gap-3 ">
+                        <span class="material-symbols-outlined">
+                            home
+                        </span>
+                        <span>Home</span>
+                    </li>
+
+                    <li class="flex justify-center items-center gap-3 ">
+                        <span class="material-symbols-outlined">
+                            search
+                        </span>
+                        <span>Explore</span>
+                    </li>
+
+                    <li class="flex justify-center items-center gap-3 ">
+                        <span class="material-symbols-outlined">
+                            notifications
+                        </span>
+                        <span>Notifications</span>
+                    </li>
+
+                    <li class="flex justify-center items-center gap-3">
+                        <span class="material-symbols-outlined">
+                            mail
+                        </span>
+                        <span>Messages</span>
+                    </li>
+
+                    <li class="flex justify-center items-center gap-3 ">
+                        <svg viewBox="0 0 33 32" aria-hidden="true"
+                            class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-lwhw9o r-cnnz9e invert w-6">
+                            <g>
+                                <path
+                                    d="M12.745 20.54l10.97-8.19c.539-.4 1.307-.244 1.564.38 1.349 3.288.746 7.241-1.938 9.955-2.683 2.714-6.417 3.31-9.83 1.954l-3.728 1.745c5.347 3.697 11.84 2.782 15.898-1.324 3.219-3.255 4.216-7.692 3.284-11.693l.008.009c-1.351-5.878.332-8.227 3.782-13.031L33 0l-4.54 4.59v-.014L12.743 20.544m-2.263 1.987c-3.837-3.707-3.175-9.446.1-12.755 2.42-2.449 6.388-3.448 9.852-1.979l3.72-1.737c-.67-.49-1.53-1.017-2.515-1.387-4.455-1.854-9.789-.931-13.41 2.728-3.483 3.523-4.579 8.94-2.697 13.561 1.405 3.454-.899 5.898-3.22 8.364C1.49 30.2.666 31.074 0 32l10.478-9.466">
+                                </path>
+                            </g>
+                        </svg>
+                        <span>Grok</span>
+                    </li>
+
+                    <li class="flex justify-center items-center gap-3">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"
+                            class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-lwhw9o r-cnnz9e w-6 invert">
+                            <g>
+                                <path
+                                    d="M3 4.5C3 3.12 4.12 2 5.5 2h13C19.88 2 21 3.12 21 4.5v15c0 1.38-1.12 2.5-2.5 2.5h-13C4.12 22 3 20.88 3 19.5v-15zM5.5 4c-.28 0-.5.22-.5.5v15c0 .28.22.5.5.5h13c.28 0 .5-.22.5-.5v-15c0-.28-.22-.5-.5-.5h-13zM16 10H8V8h8v2zm-8 2h8v2H8v-2z">
+                                </path>
+                            </g>
+                        </svg>
+                        <span>Lists</span>
+                    </li>
+
+                    <li class="flex justify-center items-center gap-3">
+                        <span class="material-symbols-outlined">
+                            bookmark
+                        </span>
+                        <span>Bookmarks</span>
+                    </li>
+
+                    <li class="flex justify-center items-center gap-3">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"
+                            class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-lwhw9o r-cnnz9e w-6 invert">
+                            <g>
+                                <path
+                                    d="M7.501 19.917L7.471 21H.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977.963 0 1.95.212 2.87.672-.444.478-.851 1.03-1.212 1.656-.507-.204-1.054-.329-1.658-.329-2.767 0-4.57 2.223-4.938 6.004H7.56c-.023.302-.05.599-.059.917zm15.998.056L23.528 21H9.472l.029-1.027c.184-6.618 3.736-8.977 7-8.977s6.816 2.358 7 8.977zM21.437 19c-.367-3.781-2.17-6.004-4.938-6.004s-4.57 2.223-4.938 6.004h9.875zm-4.938-9c-.799 0-1.527-.279-2.116-.73-.836-.64-1.384-1.638-1.384-2.77 0-1.93 1.567-3.5 3.5-3.5s3.5 1.57 3.5 3.5c0 1.132-.548 2.13-1.384 2.77-.589.451-1.317.73-2.116.73zm-1.5-3.5c0 .827.673 1.5 1.5 1.5s1.5-.673 1.5-1.5-.673-1.5-1.5-1.5-1.5.673-1.5 1.5zM7.5 3C9.433 3 11 4.57 11 6.5S9.433 10 7.5 10 4 8.43 4 6.5 5.567 3 7.5 3zm0 2C6.673 5 6 5.673 6 6.5S6.673 8 7.5 8 9 7.327 9 6.5 8.327 5 7.5 5z">
+                                </path>
+                            </g>
+                        </svg>
+                        <span>Communities</span>
+                    </li>
+
+                    <li class="flex justify-center items-center gap-3">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"
+                            class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-lrsllp r-1nao33i r-16y2uox r-8kz0gk invert w-6">
+                            <g>
+                                <path
+                                    d="M21.742 21.75l-7.563-11.179 7.056-8.321h-2.456l-5.691 6.714-4.54-6.714H2.359l7.29 10.776L2.25 21.75h2.456l6.035-7.118 4.818 7.118h6.191-.008zM7.739 3.818L18.81 20.182h-2.447L5.29 3.818h2.447z">
+                                </path>
+                            </g>
+                        </svg>
+                        <span>Premium</span>
+                    </li>
+
+                    <li class="flex justify-center items-center gap-3 ">
+                        <span class="material-symbols-outlined">
+                            person
+                        </span>
+                        <span>Profile</span>
+                    </li>
+
+                    <li class="flex justify-center items-center gap-3">
+                        <span class="material-symbols-outlined">
+                            pending
+                        </span>
+                        <span>More</span>
+                    </li>
+                </ul>
+                <button type="button" class="flex justify-center items-center w-full h-12 bg-white text-black rounded-full">Post</button>
+            </div>
         </div>
-        <div class="second">
 
+        <div class="second w-full">
+            purple
         </div>
-        <div class="third">
 
+        <div class="third w-full">
+            green
         </div>
     </div>
 </body>
+
 </html>
