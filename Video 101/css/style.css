@@ -1,0 +1,21 @@
+.leftBarElements {
+    border-radius: 2rem;
+    padding: 10px 15px 10px 15px;
+    transition: background-color 80ms ease-in;
+    font-weight: 500;
+}
+.leftBarElements:hover {
+    background-color: rgba(24, 24, 24, 1);
+}
+
+.second {
+    border-left: 0.5px solid rgb(48, 48, 48);
+    border-right: 0.5px solid rgb(48, 48, 48);
+}   
+
+.topOptions {
+    transition: all 150ms ease-in;
+}
+.topOptions:hover {
+    background-color: rgba(24, 24, 24, 1);
+}

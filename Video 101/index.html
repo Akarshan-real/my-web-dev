@@ -12,52 +12,55 @@
 
 </head>
 
-<body class="bg-black text-white" style="font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-    <div class="main flex container mx-auto">
+<body class="bg-black text-white overflow-x-hidden h-auto"
+    style="font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+    <div class="main flex container mx-auto gap-8">
         <div class="first flex flex-col gap-6">
 
-            <div class="logo w-full">
-                <svg viewBox="0 0 24 24" aria-hidden="true"
-                    class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-lrsllp r-1nao33i r-16y2uox r-8kz0gk invert w-10">
-                    <g>
-                        <path
-                            d="M21.742 21.75l-7.563-11.179 7.056-8.321h-2.456l-5.691 6.714-4.54-6.714H2.359l7.29 10.776L2.25 21.75h2.456l6.035-7.118 4.818 7.118h6.191-.008zM7.739 3.818L18.81 20.182h-2.447L5.29 3.818h2.447z">
-                        </path>
-                    </g>
-                </svg>
+            <div class="logo w-full cursor-pointer">
+                <a href="">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"
+                        class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-lrsllp r-1nao33i r-16y2uox r-8kz0gk invert w-10">
+                        <g>
+                            <path
+                                d="M21.742 21.75l-7.563-11.179 7.056-8.321h-2.456l-5.691 6.714-4.54-6.714H2.359l7.29 10.776L2.25 21.75h2.456l6.035-7.118 4.818 7.118h6.191-.008zM7.739 3.818L18.81 20.182h-2.447L5.29 3.818h2.447z">
+                            </path>
+                        </g>
+                    </svg>
+                </a>
             </div>
 
             <div class="sideBar flex flex-col gap-6">
-                <ul class="flex flex-col items-start gap-6">
-                    <li class="flex justify-center items-center gap-3 ">
+                <ul class="flex flex-col items-start">
+                    <li class="flex justify-center items-center gap-3 leftBarElements cursor-pointer">
                         <span class="material-symbols-outlined">
                             home
                         </span>
                         <span>Home</span>
                     </li>
 
-                    <li class="flex justify-center items-center gap-3 ">
+                    <li class="flex justify-center items-center gap-3 leftBarElements cursor-pointer">
                         <span class="material-symbols-outlined">
                             search
                         </span>
                         <span>Explore</span>
                     </li>
 
-                    <li class="flex justify-center items-center gap-3 ">
+                    <li class="flex justify-center items-center gap-3 leftBarElements cursor-pointer">
                         <span class="material-symbols-outlined">
                             notifications
                         </span>
                         <span>Notifications</span>
                     </li>
 
-                    <li class="flex justify-center items-center gap-3">
+                    <li class="flex justify-center items-center gap-3 leftBarElements cursor-pointer">
                         <span class="material-symbols-outlined">
                             mail
                         </span>
                         <span>Messages</span>
                     </li>
 
-                    <li class="flex justify-center items-center gap-3 ">
+                    <li class="flex justify-center items-center gap-3 leftBarElements cursor-pointer">
                         <svg viewBox="0 0 33 32" aria-hidden="true"
                             class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-lwhw9o r-cnnz9e invert w-6">
                             <g>
@@ -69,7 +72,7 @@
                         <span>Grok</span>
                     </li>
 
-                    <li class="flex justify-center items-center gap-3">
+                    <li class="flex justify-center items-center gap-3 leftBarElements cursor-pointer">
                         <svg viewBox="0 0 24 24" aria-hidden="true"
                             class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-lwhw9o r-cnnz9e w-6 invert">
                             <g>
@@ -81,14 +84,14 @@
                         <span>Lists</span>
                     </li>
 
-                    <li class="flex justify-center items-center gap-3">
+                    <li class="flex justify-center items-center gap-3 leftBarElements cursor-pointer">
                         <span class="material-symbols-outlined">
                             bookmark
                         </span>
                         <span>Bookmarks</span>
                     </li>
 
-                    <li class="flex justify-center items-center gap-3">
+                    <li class="flex justify-center items-center gap-3 leftBarElements cursor-pointer">
                         <svg viewBox="0 0 24 24" aria-hidden="true"
                             class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-lwhw9o r-cnnz9e w-6 invert">
                             <g>
@@ -100,7 +103,7 @@
                         <span>Communities</span>
                     </li>
 
-                    <li class="flex justify-center items-center gap-3">
+                    <li class="flex justify-center items-center gap-3 leftBarElements cursor-pointer">
                         <svg viewBox="0 0 24 24" aria-hidden="true"
                             class="r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-lrsllp r-1nao33i r-16y2uox r-8kz0gk invert w-6">
                             <g>
@@ -112,32 +115,79 @@
                         <span>Premium</span>
                     </li>
 
-                    <li class="flex justify-center items-center gap-3 ">
+                    <li class="flex justify-center items-center gap-3 leftBarElements cursor-pointer">
                         <span class="material-symbols-outlined">
                             person
                         </span>
                         <span>Profile</span>
                     </li>
 
-                    <li class="flex justify-center items-center gap-3">
+                    <li class="flex justify-center items-center gap-3 leftBarElements cursor-pointer">
                         <span class="material-symbols-outlined">
                             pending
                         </span>
                         <span>More</span>
                     </li>
                 </ul>
-                <button type="button" class="flex justify-center items-center w-full h-12 bg-white text-black rounded-full">Post</button>
+
+                <button type="button" class="flex justify-center items-center 
+                w-full h-12
+                bg-white text-black rounded-full 
+                hover:bg-[rgba(215,219,220,1)] 
+                transition-colors duration-200 ease-in-out 
+                font-semibold">Post
+                </button>
             </div>
         </div>
 
-        <div class="second w-full">
-            purple
+        <div class="second w-full h-auto flex flex-col">
+            <div class="flex justify-center items-center border-b-[0.5px] border-b-[rgb(48,48,48)]">
+                <button type="button" class="w-full flex justify-center items-center h-14 topOptions"><span
+                        class="text-[rgb(113,118,123)] font-normal whitespace-nowrap">For you</span></button>
+                <button type="button" class="w-full flex justify-center items-center h-14 topOptions"><span
+                        class="text-[rgb(113,118,123)] font-normal whitespace-nowrap">Following</span></button>
+            </div>
+
+            <div class="border-b-[0.5px] border-b-[rgb(48,48,48)] h-auto w-full">
+                <div>
+                    <img src="" alt="">
+                </div>
+                <div>
+                    <div>
+                        <input type="search" name="" id="">
+                    </div>
+                    <div>
+                        <div>
+                            <ul>
+                                <li><button type="button"></button></li>
+                                <li><button type="button"></button></li>
+                                <li><button type="button"></button></li>
+                                <li><button type="button"></button></li>
+                                <li><button type="button"></button></li>
+                                <li><button type="button"></button></li>
+                                <li><button type="button"></button></li>
+                            </ul>
+                        </div>
+                        <button type="button">
+                            Post
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="posts"></div>
+            <div class="posts"></div>
+            <div class="posts"></div>
+            <div class="posts"></div>
+            <div class="posts"></div>
         </div>
 
         <div class="third w-full">
             green
         </div>
     </div>
+
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
