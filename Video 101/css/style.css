@@ -19,3 +19,15 @@
 .topOptions:hover {
     background-color: rgba(24, 24, 24, 1);
 }
+
+#searchBar:focus {
+    outline: none;
+}
+
+.sevenSvgUl li a{
+    padding: 8px;
+}
+
+.seven-svgs {
+    width: 20px;
+}
