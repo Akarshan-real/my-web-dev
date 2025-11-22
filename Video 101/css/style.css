@@ -35,3 +35,10 @@
 .seven-svgs {
     width: 20px;
 }
+.bottomDiv {
+    height: 5px;
+    position: absolute;
+    bottom: 1px;
+    border-radius: 1rem;
+    background-color: rgb(29 ,155 ,240);
+}

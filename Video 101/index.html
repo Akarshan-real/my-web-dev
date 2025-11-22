@@ -145,12 +145,14 @@
         </div>
 
         <!-- Second Div -->
-        <div class="second w-full h-auto flex flex-col">
+        <div class="second w-full h-auto flex flex-col max-w-xl">
             <div class="flex justify-center items-center border-b-[0.5px] border-b-[rgb(48,48,48)]">
-                <button type="button" class="w-full flex justify-center items-center h-14 topOptions"><span
-                        class="text-[rgb(113,118,123)] font-normal whitespace-nowrap">For you</span></button>
-                <button type="button" class="w-full flex justify-center items-center h-14 topOptions"><span
-                        class="text-[rgb(113,118,123)] font-normal whitespace-nowrap">Following</span></button>
+                <button type="button" class="w-full flex justify-center items-center h-14 topOptions relative">
+                    <span class="text-[rgb(113,118,123)] font-normal whitespace-nowrap h-full flex justify-center items-center">For you</span>
+                </button>
+                <button type="button" class="w-full flex justify-center items-center h-14 topOptions relative">
+                    <span class="text-[rgb(113,118,123)] font-normal whitespace-nowrap h-full flex justify-center items-center">Following</span>
+                </button>
             </div>
 
             <div class="border-b-[0.5px] border-b-[rgb(48,48,48)] h-auto w-full flex justify-center items-center">
@@ -415,8 +417,36 @@
         </div>
 
         <!-- Third Div -->
-        <div class="third w-full">
-            News
+        <div class="third w-[clamp(200px,100%,350px)] flex flex-col items-center">
+            <div class="flex justify-center items-center gap-2 w-full border-[0.5px] border-[rgb(48,48,48)] rounded-[2rem] h-14">
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="color: rgb(113,118,123);" fill="currentColor" class="w-[16px] r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1tjplnt r-1bwzh9t r-10ptun7 r-2dysd3 r-1janqcz"><g><path d="M10.25 3.75c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c1.795 0 3.419-.726 4.596-1.904 1.178-1.177 1.904-2.801 1.904-4.596 0-3.59-2.91-6.5-6.5-6.5zm-8.5 6.5c0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5c0 1.986-.682 3.815-1.824 5.262l4.781 4.781-1.414 1.414-4.781-4.781c-1.447 1.142-3.276 1.824-5.262 1.824-4.694 0-8.5-3.806-8.5-8.5z"></path></g></svg>
+                <input type="search" name="" id="" class="w-full">
+            </div>
+            <div class="rounded-2xl border-[0.5px] border-[rgb(48,48,48)] w-full h-fit"></div>
+            <div class="rounded-2xl border-[0.5px] border-[rgb(48,48,48)] w-full h-fit"></div>
+            <div class="rounded-2xl border-[0.5px] border-[rgb(48,48,48)] w-full h-fit"></div>
+            <div class="rounded-2xl border-[0.5px] border-[rgb(48,48,48)] w-full h-fit"></div>
+
+            <div class="w-[80%] flex flex-col justify-center items-center text-[rgb(113,118,123)] text-[11px]">
+                <div class="flex justify-center items-center whitespace-nowrap gap-2">
+                    <a href="">Terms of Service</a>
+                    <span>|</span>
+                    <a href="">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="">Cookie Policy</a>
+                    <span>|</span>
+                </div>
+                <div class="flex justify-center items-center whitespace-nowrap gap-2">
+                    <a href="">Accessibility</a>
+                    <span>|</span>
+                    <a href="">Ads info</a>
+                    <span>|</span>
+                    <a href="" class="flex justify-center items-center gap-[2px]">More
+                        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" class="w-[11px] r-4qtqp9 r-yyyyoo r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-ip8ujx r-lzsi8w"><g><path d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"></path></g></svg>
+                    </a>
+                    <span>© 2025 X Corp.</span>
+                </div>
+            </div>
         </div>
 
     </div>
