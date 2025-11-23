@@ -31,3 +31,26 @@
     border-radius: 1rem;
     background-color: rgb(29 ,155 ,240);
 }
+.no-scrollbar {
+    scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width:1024px){
+    .sideBar {
+        align-items: center;
+    }
+    .LBEtexts {
+        display: none;
+    }
+    .leftBarElements,.postButton {
+        border-radius: 50%;
+    }
+    .postButton {
+        padding: 8px;
+        width: fit-content;
+        height: fit-content;
+    }
+}
