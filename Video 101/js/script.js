@@ -9,11 +9,12 @@
 (function hoverColorChange() {
     {
         document.querySelectorAll(".blueLogoGlow").forEach(e => {
+            const prevColor = e.style.color;
             e.addEventListener("mouseenter", () => {
                 e.style.color = "rgb(29,155,240)";
             });
             e.addEventListener("mouseleave", () => {
-                e.style.color = "rgb(113,118,123)";
+                e.style.color = prevColor;
             });
         })
     }
@@ -40,6 +41,9 @@
                 }
             });
         });
+    }
+    {
+
     }
 })();
 
