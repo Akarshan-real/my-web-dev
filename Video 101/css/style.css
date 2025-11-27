@@ -38,7 +38,7 @@
     display: none;
 }
 
-@media (max-width:1024px){
+@media (max-width:1260px){
     .sideBar {
         align-items: center;
     }
@@ -52,5 +52,18 @@
         padding: 8px;
         width: fit-content;
         height: fit-content;
+    }
+}
+@media (max-width:1080px) {
+    .third {
+        display: none;
+    }
+}
+@media (max-width:500px) {
+    .first {
+        display: none;
+    }
+    footer {
+        display: flex;
     }
 }

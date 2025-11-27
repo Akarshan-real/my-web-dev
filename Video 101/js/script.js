@@ -110,9 +110,12 @@
 })();
 
 (function responsive() {
-    if (window.matchMedia("(max-width: 1024px)").matches) {
+    if (window.matchMedia("(max-width: 1260px)").matches) {
         document.querySelector(".postLogo").classList.remove("hidden");
         document.querySelector(".postButton").classList.remove("p-3");
+    }
+    if (window.matchMedia("(max-width: 500px)").matches) {
+        document.querySelector("footer").classList.remove("hidden");
     }
 
 })();

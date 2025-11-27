@@ -4,6 +4,7 @@ Step 1: Run the following commands
 
 ``` 
 npm install -D tailwindcss
+npm install -D tailwindcss@3.3.2 postcss autoprefixer <- for harry's
 npx tailwindcss init
 ```
 
