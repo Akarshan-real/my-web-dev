@@ -1,0 +1,12 @@
+footer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: white;
+    background-color: rgb(29, 29, 29);
+    width: 100%;
+    padding: 1rem 2rem;
+    flex-wrap: wrap;
+    position: fixed;
+    bottom: 0;
+}

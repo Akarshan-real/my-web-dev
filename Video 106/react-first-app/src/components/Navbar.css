@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(40, 33, 43);
+}
+
+nav,ul {
+    display: flex;
+}
+
+ul {
+    gap: 2rem;
+    background-color: rgb(29, 29, 29);
+    width: 100%;
+    padding: 1rem 2rem;
+    border: 0.5px solid black;
+}
+li{
+    list-style-type: none;
+    color: rgb(224, 203, 234);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: large;
+}
+li:hover{
+    text-decoration: underline;
+}
