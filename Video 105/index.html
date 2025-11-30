@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why react?</title>
+    <style>
+        .box {
+            color: red;
+            height: 10vh;
+            width: 10vh;
+            border: 2px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let box1 = "I am box 1";        
+        let box2 = "I am box 2";        
+        let box3 = "I am box 3"; 
+    </script>
+    <div class="box box1">I am box1</div>
+    <div class="box box2">I am box2</div>
+    <div class="box box3">I am box3</div>
+    <button>Click me</button>
+    <script>
+        const boxes = document.querySelectorAll(".box");
+        for (let i = 0; i < boxes.length; i++) {
+            setTimeout(() => {
+                boxes[i].textContent = ["Hey","Hi","Hello"][i];
+            }, (i+1)*1000);
+        };
+    </script>
+</body>
+</html>
