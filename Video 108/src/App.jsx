@@ -13,10 +13,6 @@ function App() {
     alert("Count was changed");
     setColor(color + 1);  
   }, [count])
-  
-
-  
-  
 
   return (
     <>
