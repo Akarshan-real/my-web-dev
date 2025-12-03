@@ -1,0 +1,8 @@
+#todoAddBox {
+    position: relative;
+    outline: 1px solid black;
+}
+label {
+    position: absolute;
+    left: 0;
+}

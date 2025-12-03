@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Card from './components/Card'
 
 async function dataPull(link) {
-  let data = [];
+  let data = [{success:"failed",msg:"failed to load data"}];
   try {
     const response = await fetch(link,{headers:{"x-api-key":import.meta.env.VITE_API_KEY}});
     data = await response.json();
