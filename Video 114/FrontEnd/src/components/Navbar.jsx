@@ -3,7 +3,7 @@ import './Navbar.css'
 
 const Navbar = () => {
   return (
-    <nav className='flex justify-between items-center w-full h-12 px-4 bg-slate-700 text-white'>
+    <nav className='flex justify-between items-center w-full h-12 px-4 text-white'>
         <div>
             <span className='w-fit h-fit cursor-context-menu font-bold'>iTask</span>    
         </div>

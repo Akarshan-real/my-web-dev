@@ -1,0 +1,83 @@
+/* Outer container */
+.outerTodo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 2.5rem; 
+    position: relative;
+    overflow: hidden;
+}
+
+/* Left checkbox container */
+.todoCheckBoxContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; 
+    padding: 0.5rem 1rem; 
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1s ease-in-out;
+}
+
+.todoCheckBoxContainer.show {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+
+/* Checkbox itself */
+/* -------------------------------------- */
+.todoCheckbox {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+}
+
+/* Checked / Check text */
+.todoChecked {
+    transition: all 200ms ease-in-out;
+}
+
+/* When checkbox is TRUE */
+.todoChecked.checked {
+    opacity: 1; 
+    transform: scale(1);
+}
+
+/* When checkbox is FALSE */
+.todoChecked.unchecked {
+    opacity: 0.5;
+    transform: scale(0.9);
+}
+
+/* Todo text */
+/* -------------------------------------- */
+.todoInfoBox {
+    position: absolute;
+    left: 0;
+    transition: left 2s ease-in-out, 
+                font-size 0.2s ease-in-out;
+    white-space: nowrap;
+}
+.moveRight {
+    left: 75%;
+}
+
+
+/* When checked -> big flex energy */
+.todoInfoBox.checked {
+    font-size: 1.8rem;
+}
+
+/* When unchecked -> slightly smol */
+.todoInfoBox.unchecked {
+    font-size: 1.5rem;
+}

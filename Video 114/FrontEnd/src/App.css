@@ -1,8 +1,109 @@
-#todoAddBox {
+.yourTodosH3 {
     position: relative;
-    outline: 1px solid black;
+    width: fit-content;
 }
-label {
+
+.selectButton,
+.operationButtons {
+    border-radius: 1rem;
+    background-color: var(--navbar-bg);
+    font-weight: 600;
+    color: white;
+    padding-inline: 2rem;
+    height: 100%;
+    cursor: pointer;
+    transition: background-color 150ms ease-in-out,
+        transform 150ms ease-in-out;
+}
+
+.selectButton:hover,
+.operationButtons:hover {
+    background-color: var(--navbar-bg-hover);
+}
+
+.selectButton:active,
+.operationButtons:active {
+    transform: scale(0.85);
+}
+
+.cancel {
     position: absolute;
-    left: 0;
+    left: -50%;
+    animation: forCancel 1s forwards;
+}
+
+.delete {
+    position: absolute;
+    left: -50%;
+    animation: forDelete 2s forwards;
+}
+.edit {
+    position: absolute;
+    left: -50%;
+    animation: forEdit 2.5s forwards;
+}
+
+.select{
+    position: absolute;
+    left: -50%;
+    animation: forSelect 1s forwards;
+}
+
+/* Animations */
+@keyframes forCancel {
+    0% {
+        left: -50%;
+    }
+
+    85% {
+        left: 1%;
+    }
+
+    100% {
+        left: 0%;
+    }
+
+}
+@keyframes forDelete {
+    0% {
+        left: -50%;
+    }
+
+    85% {
+        left: 16%;
+    }
+
+    100% {
+        left: 15%;
+    }
+}
+
+@keyframes forEdit {
+    0% {
+        left: -50%;
+    }
+
+    85% {
+        left: 31%;
+    }
+
+    100% {
+        left: 30%;
+    }
+}
+@keyframes forSelect {
+    0% {
+        left: -50%;
+    }
+
+    85% {
+        left: 1%;
+    }
+
+    100% {
+        left: 0%;
+    }
+}
+.reverse {
+    animation-direction: reverse;
 }

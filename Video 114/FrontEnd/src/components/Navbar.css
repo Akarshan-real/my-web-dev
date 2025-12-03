@@ -1,3 +1,6 @@
+nav {
+    background-color: var(--navbar-bg);
+}
 li::after {
     content: '';
     height: 2px;
