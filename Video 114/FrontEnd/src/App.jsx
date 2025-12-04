@@ -8,17 +8,7 @@ import './App.css'
 function App() {
 
   const [select, setSelect] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
-
-  const handleCancelStart = () => {
-    setIsClosing(true);
-  };
-  const handleAnimationEnd = () => {
-    if (isClosing) {
-      setSelect(false);
-      setIsClosing(false);
-    }
-  };
+  const [notRefreshedPage, setNotRefreshedPage] = useState(true)
 
   const a = [
     { todo: "You have to complete the homework" },
@@ -27,39 +17,74 @@ function App() {
     { todo: "Drink water" },
   ];
 
+  const handleSelectClick = () => {
+    setNotRefreshedPage(false);
+    setSelect(true);
+  };
+
 
   return (
-    <div className='mx-auto flex justify-center flex-col items-center overflow-x-hidden gap-4'>
+    <div className='mx-auto flex flex-col items-center overflow-x-hidden gap-4 bg-(--navbar-bg) h-screen'>
+
+      {/* NAVBAR */}
       <Navbar />
-      <div className="todos w-[calc(100%-2rem)] h-fit bg-pink-200 rounded-2xl p-4 flex flex-col gap-5">
+
+      {/* MAIN CONTAINER */}
+      <div className="todos w-[calc(100%-2rem)] h-fit bg-(--content-bg) rounded-2xl p-4 flex flex-col gap-5">
+
+        {/* ADD A TODO */}
         <h2 className='font-bold text-4xl'>Add a ToDo</h2>
+
+        {/* ADD BOX */}
         <Label />
-        <h2 className='font-bold text-4xl yourTodosH3'>Your ToDos</h2>
+
+        {/* HEADING OF YOUR TODOS */}
+        <h2 className='font-bold text-4xl w-fit'>Your ToDos</h2>
+
+        {/* TODO BUTTONS */}
         <div className='h-12 flex items-center gap-8 relative'>
-          {!select && 
-          <button type="button" 
-          className='selectButton mid select' 
-          onClick={() => setSelect(true)}>
-          Select</button>}
+          {/* SELECT BUTTON */}
+          <div className={`absolute left-0 top-0 h-full 
+          ${
+            notRefreshedPage ? "opacity-100" : (select ? "slideOut" : "slideIn")
+          }`}>
+            <button 
+              type="button" 
+              className="selectButton flex justify-center items-center"
+              onClick={handleSelectClick}
+            >
+              Select
+            </button>
+          </div>
 
-          {select && <>
-            <button type='button' 
-            className={`mid operationButtons cancel ${isClosing ? 'reverse' : ''}`} 
-            onClick={() => {setSelect(false);
-            onAnimationEnd(() => setIsClosing(true))}}>Cancel</button>
+          {/* CANCEL , EDIT , DELETE BUTTON */}
+          <div className={`absolute left-0 top-0 h-full flex gap-4 ${
+            notRefreshedPage ? "opacity-0 pointer-events-none" : (select ? "slideIn" : "slideOut")
+          }`}>
+            <button 
+              type='button'
+              className="operationButtons flex justify-center items-center cancel"
+              onClick={() => setSelect(false)}
+            >
+              Cancel
+            </button>
 
-            <button type='button' className={`mid operationButtons edit ${isClosing ? 'reverse' : ''}`} >Edit</button>
+            <button type='button' className="operationButtons flex justify-center items-center edit">Edit</button>
+            <button type='button' className="operationButtons flex justify-center items-center delete">Delete</button>
+          </div>
 
-            <button type='button' className={`mid operationButtons delete ${isClosing ? 'reverse' : ''}`}>Delete</button>
-          </>
-        }
+
         </div>
-        <div>
+
+        {/* TODO CONTAINER */}
+        <div className='flex flex-col gap-3'>
           {a.map((element, index) => (<Todo key={index} info={element} show={select} />))}
         </div>
+
       </div>
     </div>
   )
 }
 
 export default App
+

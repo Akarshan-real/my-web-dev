@@ -19,35 +19,37 @@ const Todo = ({ info, show }) => {
         else {
             setCheck(false);
         }
-    }, [check, show]);    
+    }, [check, show]);
 
     return (
         <div className='outerTodo'>
-            <div 
-                className={`todoCheckBoxContainer ${show ? "show" : ""}`} 
+            <span
+                className={`todoInfoBox ${check ? "checked" : "unchecked"}`}
+            >
+                {info.todo}
+            </span>
+
+            <div
+                className={`todoCheckBoxContainer ${show ? "show" : ""}`}
                 onClick={() => setCheck(x => !x)}
             >
-                <input 
-                    ref={inputRef} 
-                    type="checkbox" 
-                    checked={check} 
-                    name="todo-select" 
-                    onClick={(e) => e.stopPropagation()}     
+                <input
+                    ref={inputRef}
+                    type="checkbox"
+                    checked={check}
+                    name="todo-select"
+                    onClick={(e) => e.stopPropagation()}
                     onChange={() => setCheck(x => !x)}
                     className={`todoCheckbox`}
                 />
-                <span 
+                <span
                     onCopy={(e) => e.preventDefault()}
                     className={`todoChecked ${check ? "checked" : "unchecked"}`}
                 >
                     {check ? "Checked" : "Check"}
                 </span>
             </div>
-            <span 
-                className={`todoInfoBox ${check ? "checked" : "unchecked"} ${show ? "moveRight" : ""}`}
-            >
-                {info.todo}
-            </span>
+
         </div>
     )
 }

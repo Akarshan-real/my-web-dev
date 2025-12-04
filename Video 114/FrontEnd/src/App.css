@@ -1,8 +1,4 @@
-.yourTodosH3 {
-    position: relative;
-    width: fit-content;
-}
-
+/* .mid -> flex , justify-center items-center */
 .selectButton,
 .operationButtons {
     border-radius: 1rem;
@@ -13,7 +9,8 @@
     height: 100%;
     cursor: pointer;
     transition: background-color 150ms ease-in-out,
-        transform 150ms ease-in-out;
+                transform 150ms ease-in-out;
+    white-space: nowrap;
 }
 
 .selectButton:hover,
@@ -25,84 +22,38 @@
 .operationButtons:active {
     transform: scale(0.85);
 }
-
-.cancel {
-    position: absolute;
-    left: -50%;
-    animation: forCancel 1s forwards;
+.slideIn{
+    animation: slideIn 1s ease-in-out forwards;
+}
+.slideOut {
+    animation: slideOut 1s ease-in-out forwards;
 }
 
-.delete {
-    position: absolute;
-    left: -50%;
-    animation: forDelete 2s forwards;
-}
-.edit {
-    position: absolute;
-    left: -50%;
-    animation: forEdit 2.5s forwards;
-}
-
-.select{
-    position: absolute;
-    left: -50%;
-    animation: forSelect 1s forwards;
-}
-
-/* Animations */
-@keyframes forCancel {
+@keyframes slideIn {
     0% {
-        left: -50%;
+        transform: translateX(-150%);
     }
-
-    85% {
-        left: 1%;
+    75%{
+        transform: translateX(10%);
     }
-
     100% {
-        left: 0%;
-    }
-
-}
-@keyframes forDelete {
-    0% {
-        left: -50%;
-    }
-
-    85% {
-        left: 16%;
-    }
-
-    100% {
-        left: 15%;
+        transform: translateX(0);
     }
 }
 
-@keyframes forEdit {
+@keyframes slideOut {
     0% {
-        left: -50%;
+        transform: translateX(0);
     }
-
-    85% {
-        left: 31%;
+    75%{
+        transform: translateX(10%);
     }
-
     100% {
-        left: 30%;
+        transform: translateX(-150%);
     }
 }
-@keyframes forSelect {
-    0% {
-        left: -50%;
-    }
-
-    85% {
-        left: 1%;
-    }
-
-    100% {
-        left: 0%;
-    }
+.normal {
+    animation-direction: normal;
 }
 .reverse {
     animation-direction: reverse;
