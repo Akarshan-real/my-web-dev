@@ -11,9 +11,15 @@ function App() {
   const [notRefreshedPage, setNotRefreshedPage] = useState(true);
   const [data, setData] = useState([]);
   const [selectedIndexes, setSelectedIndexes] = useState([]);
+  const [editValue, setEditValue] = useState("");
+  const [editing, setEditing] = useState(false);
+
+  useEffect(() => {
+    setEditValue(data[0]);
+  }, [data]);
 
   const handelAddData = (xtra) => {
-    setData([...data,xtra]);
+    setData(lol => [...lol,xtra]);
   };
 
   const handelCheckChange = (idx) => {
@@ -30,27 +36,26 @@ function App() {
   const a = ["hello","mu me lelo"]
 
   const handelEdit = () => {
+    setEditing(x => !x);
+      if (selectedIndexes.length === 1) {
 
+      }
   };
 
   const handelDelete = () => {
-    if (selectedIndexes.length != null) {
-      const newDataArray = data.filter((_,index) => !selectedIndexes.includes(index));
-      setData(newDataArray);
+    if (selectedIndexes.length > 0) {
+      setData(prev => prev.filter((_, i) => !selectedIndexes.includes(i)));
       selectedIndexes([]);
       setSelect(false);
     }
-    else {
-      alert("select one");
-    }
   };
-
 
   const handleSelectClick = () => {
     setNotRefreshedPage(false);
     setSelect(true);
   };
   const handleCancel = () => {
+    setEditing(false);
     setSelect(false);
     setSelectedIndexes([]);
   };
@@ -103,12 +108,11 @@ function App() {
               Cancel
             </button>
 
-            <button type='button' className="operationButtons flex justify-center items-center edit"
-            onChange={handelEdit}>Edit</button>
+            <button type='button' className={`operationButtons flex justify-center items-center edit`}
+            onClick={handelEdit}>{editing ? "Save" : "Edit"}</button>
             <button type='button' className="operationButtons flex justify-center items-center delete"
-            onChange={handelDelete}>Delete</button>
+            onClick={handelDelete}>Delete</button>
           </div>
-
 
         </div>
 
@@ -116,8 +120,13 @@ function App() {
         <div className='flex flex-col gap-3'>
           {data.map((element, index) => (
             <Todo 
-              key={index} info={element} show={select} index={index} isChecked={selectedIndexes.includes(index)} onCheckChange={handelCheckChange}
-            />  
+              key={index} 
+              info={element} 
+              show={select} 
+              onCheckChange={handelCheckChange} 
+              index={index} 
+              editing={editing} 
+            /> 
           ))}
         </div>
 
@@ -127,4 +136,3 @@ function App() {
 }
 
 export default App
-

@@ -37,7 +37,7 @@
 /* Checked / Check text */
 .todoChecked {
     transition: opacity 300ms ease-in-out,
-                font-size 300ms ease-in-out;
+                font-size 300ms ease-out;
 }
 
 /* When checkbox is TRUE */
@@ -48,16 +48,22 @@
 
 /* When checkbox is FALSE */
 .todoChecked.unchecked {
-    opacity: 0.5;
+    opacity: 0.6;
     font-size: 1rem;
 }
 
 .todoInfoBox {
-    transition: font-size 0.2s ease-in-out;
+    transition: font-size 300ms ease-in-out;
 }
 .todoInfoBox.checked {
     font-size: 1.8rem;
 }
 .todoInfoBox.unchecked {
     font-size: 1.5rem;
+}
+#editingTextInput:focus,
+#editingTextInput:focus-visible, 
+#editingTextInput:active {
+    outline: none !important;
+    border: none !important;
 }
