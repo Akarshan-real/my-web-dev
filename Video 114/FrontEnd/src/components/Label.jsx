@@ -22,7 +22,7 @@ const Label = ({ onAdd }) => {
         <div className='flex items-center gap-5 w-fit'>
             {showPopup && <div className='popUp mid'>Data Added</div>}
             <form onSubmit={handelAdd} className={`holder mid ${val.length > 0 ? 'locked' : ''}`} id='inputHolder'>
-                <input className=''
+                <input className='' autoComplete='off'
                     ref={inputBox} placeholder=' ' value={val} type="text" name="todoAddBox" id="todoA" onChange={(e) => setVal(e.target.value)} />
                 <label className='cool'
                     htmlFor="todoA">Enter What To Do 😎</label>

@@ -1,21 +1,14 @@
 import React, { useState, useRef, useEffect } from "react"
 import './Todo.css'
 
-const Todo = ({ info, show, onCheckChange, index, editing }) => {
+const Todo = ({ info, show, onCheckChange, index, editing , setEditValue}) => {
 
     const [check, setCheck] = useState(false);
-    const [reverseEditing, setReverseEditing] = useState(editing);
     const inputRef = useRef(null);
     const editRef = useRef(null);
     const [val, setVal] = useState('');
 
-    const checkBoxHandler = () => {
-
-        document.querySelector(".todoChecked");
-    };
-
     useEffect(() => {
-        setReverseEditing(x => !x);
         if (editing) {
             editRef.current.value = info;
             editRef.current.focus();
@@ -24,7 +17,7 @@ const Todo = ({ info, show, onCheckChange, index, editing }) => {
 
 
     useEffect(() => {
-        if (show && inputRef.current) {
+        if (show) {
             if (check) {
                 inputRef.current.focus();
             }
@@ -41,10 +34,21 @@ const Todo = ({ info, show, onCheckChange, index, editing }) => {
     return (
         <div className='outerTodo'>
             <span
-                className={`todoInfoBox ${check ? "checked" : "unchecked"} relative flex-1`}>
+                className={`todoInfoBox ${check ? "checked" : "unchecked"} relative flex-1 h-full`}>
 
-                <form className={`absolute left-0 w-full h-full ${editing ? "flex flex-wrap" : "hidden"}`}>
-                    <input className={`w-full`} type="text" ref={editRef} name="editingText" id="editingTextInput" placeholder={`${val}`} onChange={(e) => setVal(e.target.value)} />
+                <form 
+                    onSubmit={(e) => {e.preventDefault();setEditValue(val)}} 
+                    
+                    className={`absolute left-0 w-full h-full ${editing ? "flex flex-wrap" : "hidden"}`}>
+                    <input 
+                        autoComplete="off" 
+                        className={`w-full`} 
+                        type="text" 
+                        ref={editRef} 
+                        name="editingText" 
+                        id="editingTextInput" 
+                        placeholder={`${val}`}
+                        onChange={(e) => {setVal(e.target.value);setEditValue(e.target.value)}} />
                 </form>
 
                 <span className={`${editing ? "opacity-0 pointer-events-none" : "opacity-100 "}`}>
@@ -54,7 +58,7 @@ const Todo = ({ info, show, onCheckChange, index, editing }) => {
 
             <div
                 className={`todoCheckBoxContainer ${show ? "show" : ""}`}
-                onClick={() => setCheck(x => !x)}
+                onClick={() => {setCheck(prev => !prev);onCheckChange(index)}}
             >
                 <input
                     ref={inputRef}
@@ -62,7 +66,6 @@ const Todo = ({ info, show, onCheckChange, index, editing }) => {
                     checked={check}
                     name="todo-select"
                     onClick={(e) => e.stopPropagation()}
-                    onChange={() => { setCheck(x => !x); onCheckChange(index) }}
                     className={`todoCheckbox`}
                 />
                 <span
