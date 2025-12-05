@@ -36,7 +36,6 @@ function App() {
     setEditValue(data[selectedIndexes[0]]);
   }, [selectedIndexes, data]);
 
-
   const handelEdit = () => {
     if (!editing) {
       if (selectedIndexes.length === 1) {
@@ -137,8 +136,9 @@ function App() {
               show={select}
               onCheckChange={handelCheckChange}
               index={index}
-              editing={editing}
+              isEditing={editing && selectedIndexes.includes(index)}
               setEditValue={setEditValue}
+              isSelected={selectedIndexes.includes(index)}
             />
           ))}
         </div>

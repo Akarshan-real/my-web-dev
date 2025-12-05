@@ -1,45 +1,41 @@
 import React, { useState, useRef, useEffect } from "react"
 import './Todo.css'
 
-const Todo = ({ info, show, onCheckChange, index, editing , setEditValue}) => {
+const Todo = ({ info, show, onCheckChange, index, isEditing, setEditValue, isSelected }) => {
 
     const [check, setCheck] = useState(false);
     const inputRef = useRef(null);
     const editRef = useRef(null);
-    const [val, setVal] = useState('');
+    const [val, setVal] = useState(info);
 
     useEffect(() => {
-        if (editing) {
+        if (isEditing) {
             editRef.current.value = info;
             editRef.current.focus();
         }
-    }, [editing])
+    }, [isEditing, info])
 
 
     useEffect(() => {
         if (show) {
-            if (check) {
+            if (isSelected) {
                 inputRef.current.focus();
-            }
-            else {
+            } else {
                 inputRef.current.blur();
             }
         }
-        else {
-            setCheck(false);
-        }
-    }, [check, show]);
+    }, [isSelected, show]);
 
 
     return (
         <div className='outerTodo'>
             <span
-                className={`todoInfoBox ${check ? "checked" : "unchecked"} relative flex-1 h-full`}>
+                className={`todoInfoBox ${isSelected ? "checked" : "unchecked"} relative flex-1 h-full`}>
 
                 <form 
                     onSubmit={(e) => {e.preventDefault();setEditValue(val)}} 
                     
-                    className={`absolute left-0 w-full h-full ${editing ? "flex flex-wrap" : "hidden"}`}>
+                    className={`absolute left-0 w-full h-full ${isEditing ? "flex flex-wrap" : "hidden"}`}>
                     <input 
                         autoComplete="off" 
                         className={`w-full`} 
@@ -51,7 +47,7 @@ const Todo = ({ info, show, onCheckChange, index, editing , setEditValue}) => {
                         onChange={(e) => {setVal(e.target.value);setEditValue(e.target.value)}} />
                 </form>
 
-                <span className={`${editing ? "opacity-0 pointer-events-none" : "opacity-100 "}`}>
+                <span className={`${isEditing ? "opacity-0 pointer-events-none" : "opacity-100 "}`}>
                     {info}
                 </span>
             </span>
