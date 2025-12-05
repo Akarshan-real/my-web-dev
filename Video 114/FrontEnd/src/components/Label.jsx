@@ -1,18 +1,21 @@
 import React, { useRef, useState, useEffect } from 'react'
 import './Label.css'
 
-const Label = () => {
+const Label = ({ onAdd }) => {
     const [val, setVal] = useState('');
     const [showPopup, setShowPopup] = useState(false);
     const inputBox = useRef(null);
 
+
     const handelAdd = (e) => {
         e.preventDefault();
+        if (!val.trim()) return;
         setShowPopup(true);
+        onAdd(val);
+        setVal('');
         setTimeout(() => {
             setShowPopup(false);
         }, 2000);
-        setVal('');
     }
 
     return (
@@ -24,7 +27,7 @@ const Label = () => {
                 <label className='cool'
                     htmlFor="todoA">Enter What To Do 😎</label>
             </form>
-            <button type='submit' className='mid labelButton' form='inputHolder'><span className='mid labelSpan'>Add</span></button>
+            <button disabled={val.trim() == ''} type='submit' className='mid labelButton' form='inputHolder'><span className='mid labelSpan'>Add</span></button>
         </div>
     )
 }

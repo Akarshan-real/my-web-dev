@@ -1,37 +1,35 @@
 import React, { useState, useRef, useEffect } from "react"
 import './Todo.css'
 
-const Todo = ({ info, show }) => {
-    // show is false by default and when it turns turns i want to move indo.todo from left to right and make todoCheckBoxContainer appear from opacity 0 to 1
+const Todo = ({ info, show , isChecked , onCheckChange , index}) => {
 
     const [check, setCheck] = useState(false);
     const inputRef = useRef(null);
 
     useEffect(() => {
         if (show && inputRef.current) {
-            if (check) {
+            if (isChecked) {
                 inputRef.current.focus();
             }
             else {
                 inputRef.current.blur();
             }
         }
-        else {
-            setCheck(false);
-        }
-    }, [check, show]);
+    }, [isChecked, show]);
+    
 
     return (
         <div className='outerTodo'>
             <span
-                className={`todoInfoBox ${check ? "checked" : "unchecked"}`}
-            >
-                {info.todo}
+                className={`todoInfoBox ${isChecked ? "checked" : "unchecked"}`}
+            >   
+                {info}
             </span>
 
             <div
                 className={`todoCheckBoxContainer ${show ? "show" : ""}`}
                 onClick={() => setCheck(x => !x)}
+                onChange={() => onCheckChange(index)}
             >
                 <input
                     ref={inputRef}
@@ -39,14 +37,14 @@ const Todo = ({ info, show }) => {
                     checked={check}
                     name="todo-select"
                     onClick={(e) => e.stopPropagation()}
-                    onChange={() => setCheck(x => !x)}
+                    onChange={() => {setCheck(x => !x);onCheckChange(index)}}
                     className={`todoCheckbox`}
                 />
                 <span
                     onCopy={(e) => e.preventDefault()}
-                    className={`todoChecked ${check ? "checked" : "unchecked"}`}
+                    className={`todoChecked ${isChecked ? "checked" : "unchecked"}`}
                 >
-                    {check ? "Checked" : "Check"}
+                    {isChecked ? "Checked" : "Check"}
                 </span>
             </div>
 
