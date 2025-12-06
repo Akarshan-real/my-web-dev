@@ -15,7 +15,6 @@ const Todo = ({ info, show, onCheckChange, index, isEditing, setEditValue, isSel
         }
     }, [isEditing, info])
 
-
     useEffect(() => {
         if (show) {
             if (isSelected) {

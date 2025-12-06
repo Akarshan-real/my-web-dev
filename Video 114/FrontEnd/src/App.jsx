@@ -14,10 +14,10 @@ function App() {
   const [editValue, setEditValue] = useState("");
   const [editing, setEditing] = useState(false);
 
-
   const handelAddData = (xtra) => {
     setData(lol => [...lol, xtra]);
   };
+  
 
   const handelCheckChange = (idx) => {
     setSelectedIndexes(prev => {
@@ -32,15 +32,24 @@ function App() {
     });
   };
 
+  const handleSelectClick = () => {
+    setNotRefreshedPage(false);
+    setSelect(true);
+  };
+
   useEffect(() => {
     setEditValue(data[selectedIndexes[0]]);
   }, [selectedIndexes, data]);
 
+  const handleCancel = () => {
+    setEditing(false);
+    setSelect(false);
+    setSelectedIndexes([]);
+  };
+
   const handelEdit = () => {
     if (!editing) {
-      if (selectedIndexes.length === 1) {
-        setEditing(true);
-      }
+      setEditing(true);
     }
     else {
       setData(prev =>
@@ -55,21 +64,9 @@ function App() {
   };
 
   const handelDelete = () => {
-    if (selectedIndexes.length > 0) {
-      setData(prev => prev.filter((_, i) => !selectedIndexes.includes(i)));
-      setSelectedIndexes([]);
-      setSelect(false);
-    }
-  };
-
-  const handleSelectClick = () => {
-    setNotRefreshedPage(false);
-    setSelect(true);
-  };
-  const handleCancel = () => {
-    setEditing(false);
-    setSelect(false);
+    setData(prev => prev.filter((_, i) => !selectedIndexes.includes(i)));
     setSelectedIndexes([]);
+    setSelect(false);
   };
 
   return (
@@ -101,8 +98,7 @@ function App() {
               type="button"
               className="selectButton flex justify-center items-center"
               onClick={data.length > 0 ? handleSelectClick : null}
-              disabled={data.length === 0}
-            >
+              disabled={data.length === 0}>
               Select
             </button>
           </div>
@@ -113,16 +109,21 @@ function App() {
             <button
               type='button'
               className="operationButtons flex justify-center items-center cancel"
-              onClick={handleCancel}
-            >
+              onClick={handleCancel}>
               Cancel
             </button>
 
-            <button type='button' className={`operationButtons flex justify-center items-center edit ${selectedIndexes.length === 1 ? "" : "opacity-50 pointer-events-none"}`}
-              onClick={handelEdit}>{editing ? "Save" : "Edit"}</button>
-              
-            <button type='button' className={`operationButtons flex justify-center items-center delete ${selectedIndexes.length > 0 ? "" : "opacity-50 pointer-events-none"}`}
-              onClick={handelDelete}>Delete</button>
+            <button
+              type='button' className={`operationButtons flex justify-center items-center edit ${selectedIndexes.length === 1 ? "" : "opacity-50 pointer-events-none"}`}
+              onClick={handelEdit}>
+              {editing ? "Save" : "Edit"}
+            </button>
+
+            <button
+              type='button' className={`operationButtons flex justify-center items-center delete ${selectedIndexes.length > 0 ? "" : "opacity-50 pointer-events-none"}`}
+              onClick={handelDelete}>
+              Delete
+            </button>
           </div>
 
         </div>
