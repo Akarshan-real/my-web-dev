@@ -1,21 +1,43 @@
 import express from 'express'
 import User from '../models/Todo.js'
 
-const router = express.Router()
+const router = express.Router();
 
 router.get("/:name", async (req, res) => {
+    const name = req.params.name;
     try {
-        const user = await User.findOne({ name: req.params.name });
+        let user = await User.findOne({ name });
 
         if (!user) {
-            User.create({ name: name, todos: [] });
-            res.json({ msg: `${name} user created` })
+            user = await User.create({ name , todos: [] });
         }
-        else {
-            res.json(User);
-        }
+
+        res.json(user);
     }
     catch (error) {
-        res.status(500).json({ status: "failed", msg: "Failed to get name" }, error);
+        res.status(500).json({status : "failed", msg : error.message});
     }
-})
+});
+
+router.post("/", async (req, res) => {
+    try {
+        const { name , todos } = req.body;
+
+        let user = await User.findOne({ name });
+
+        if (!user) {
+            user = await User.create({ name, todos });
+        }
+        else {
+            user.todos = todos;
+            await user.save();
+        }
+
+        res.json(user);
+    }
+    catch (error) {
+        res.status(500).json({status : "failed", msg : error.message});
+    }
+});
+
+export default router;
