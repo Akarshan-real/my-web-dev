@@ -1,7 +1,7 @@
 import React from 'react'
 import './Navbar.css'
 
-const Navbar = () => {
+const Navbar = ({ todos }) => {
   return (
     <nav className='flex justify-between items-center w-full h-12 px-4 text-white'>
         <div>

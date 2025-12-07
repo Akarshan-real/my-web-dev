@@ -4,6 +4,14 @@ import Navbar from './components/Navbar'
 import Todo from './components/Todo'
 import Label from './components/Label'
 import './App.css'
+const API = import.meta.env.VITE_API_URL;
+let userName = localStorage.getItem("userName");
+
+userName = prompt(`Enter you name , please!`)
+while (!userName || userName.trim() === '') {
+  userName = prompt("Enter a valid name which is not blank");
+};
+localStorage.setItem("userName", userName.trim());
 
 function App() {
 
@@ -14,10 +22,52 @@ function App() {
   const [editValue, setEditValue] = useState("");
   const [editing, setEditing] = useState(false);
 
-  const handelAddData = (xtra) => {
-    setData(lol => [...lol, xtra]);
+  // ----------------------------------------------------------------------------------------------
+
+  useEffect(() => {
+    (async function () {
+      try {
+        const response = await fetch(`${API}/api/todos/${userName}`);
+        if (response.ok) {
+          const user = await response.json();
+          setData(user.todos || []);
+        }
+        else {
+          throw new Error("Backend problem");
+        }
+      }
+      catch (error) {
+        console.log(`Error is ${error}`);
+      }
+    })();
+  }, []);
+
+  async function saveTodosForBackend(updatedTodosArray) {
+    try {
+      await fetch(`${API}/api/todos`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: userName, todos: updatedTodosArray })
+      })
+    }
+    catch (error) {
+      console.error(`Error happened : ${error}`);
+    }
   };
-  
+
+  // ----------------------------------------------------------------------------------------------
+
+  const handelAddData = async (xtra) => {
+    xtra = xtra.trim();
+    if (xtra === '') {
+      alert("Enter a valid todo");
+    }
+    else {
+      const updatedTodosArray = [...data, xtra];
+      setData(updatedTodosArray);
+      await saveTodosForBackend(updatedTodosArray);
+    }
+  };
 
   const handelCheckChange = (idx) => {
     setSelectedIndexes(prev => {
@@ -31,6 +81,8 @@ function App() {
       }
     });
   };
+
+  // ----------------------------------------------------------------------------------------------
 
   const handleSelectClick = () => {
     setNotRefreshedPage(false);
@@ -47,33 +99,37 @@ function App() {
     setSelectedIndexes([]);
   };
 
-  const handelEdit = () => {
+  const handelEdit = async () => {
     if (!editing) {
       setEditing(true);
     }
     else {
-      setData(prev =>
-        prev.map((item, index) =>
-          index === selectedIndexes[0] ? editValue : item
-        )
+      const updatedTodosArray = data.map((item, index) =>
+        index === selectedIndexes[0] ? editValue : item
       );
+      await saveTodosForBackend(updatedTodosArray);
+      setData(updatedTodosArray);
       setEditing(false);
       setSelectedIndexes([]);
       setSelect(false);
     }
   };
 
-  const handelDelete = () => {
-    setData(prev => prev.filter((_, i) => !selectedIndexes.includes(i)));
+  const handelDelete = async () => {
+    const updatedTodosArray = data.filter((_, i) => !selectedIndexes.includes(i));
+    setData(updatedTodosArray);
+    await saveTodosForBackend(updatedTodosArray);
     setSelectedIndexes([]);
     setSelect(false);
   };
+
+  // ----------------------------------------------------------------------------------------------
 
   return (
     <div className='mx-auto flex flex-col items-center overflow-x-hidden gap-4 bg-(--navbar-bg) h-screen'>
 
       {/* NAVBAR */}
-      <Navbar />
+      <Navbar todos={data} />
 
       {/* MAIN CONTAINER */}
       <div className="todos w-[calc(100%-2rem)] h-fit bg-(--content-bg) rounded-2xl p-4 flex flex-col gap-5">
