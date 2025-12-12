@@ -31,19 +31,23 @@ const Todo = ({ info, show, onCheckChange, index, isEditing, setEditValue, isSel
             <span
                 className={`todoInfoBox ${isSelected ? "checked" : "unchecked"} relative flex-1 h-full`}>
 
-                <form 
-                    onSubmit={(e) => {e.preventDefault();setEditValue(val)}} 
-                    
+                <form
+                    onSubmit={(e) => { e.preventDefault(); setEditValue(val) }}
+
                     className={`absolute left-0 w-full h-full ${isEditing ? "flex flex-wrap" : "hidden"}`}>
-                    <input 
-                        autoComplete="off" 
-                        className={`w-full`} 
-                        type="text" 
-                        ref={editRef} 
-                        name="editingText" 
-                        id="editingTextInput" 
+                    <input
+                        autoComplete="off"
+                        className={`w-full`}
+                        type="text"
+                        ref={editRef}
+                        name="editingText"
+                        id="editingTextInput"
                         placeholder={`${val}`}
-                        onChange={(e) => {setVal(e.target.value);setEditValue(e.target.value)}} />
+                        onChange={(e) => {
+                            setVal(e.target.value);
+                            setEditValue(e.target.value);
+                        }}
+                    />
                 </form>
 
                 <span className={`${isEditing ? "opacity-0 pointer-events-none" : "opacity-100 "}`}>
@@ -53,7 +57,7 @@ const Todo = ({ info, show, onCheckChange, index, isEditing, setEditValue, isSel
 
             <div
                 className={`todoCheckBoxContainer ${show ? "show" : ""}`}
-                onClick={() => {setCheck(prev => !prev);onCheckChange(index)}}
+                onClick={() => { setCheck(prev => !prev); onCheckChange(index) }}
             >
                 <input
                     ref={inputRef}

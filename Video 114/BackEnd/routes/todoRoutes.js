@@ -10,7 +10,7 @@ router.get("/:name", async (req, res) => {
 
         if (!user) {
             user = await User.create({ name , todos: [] });
-        }
+        };
 
         res.json(user);
     }

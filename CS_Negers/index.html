@@ -82,12 +82,12 @@
         </div>
         <button>Get answer😋</button>
     </div>
-    <audio src="Arya das is a nigger.mp3" style="display: none;" id="niga"></audio>
+    <audio src="./Arya das is a nigger.mp3" style="display: none;" id="niga"></audio>
     <script>
         let audio = document.getElementById("niga");
         let button = document.querySelector("button");
         button.addEventListener("click", (e) => {
-            if (document.querySelector("input").value == "What is Arya Das ?".toLocaleLowerCase()) {
+            if (document.querySelector("input").value == "What is Arya Das ?".toLocaleLowerCase().trim()) {
                 audio.play();
             }
         })
