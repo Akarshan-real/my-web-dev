@@ -3,7 +3,7 @@ import User from '../models/Todo.js'
 
 const router = express.Router();
 
-router.get("/:name", async (req, res) => {
+router.get("/user/:name", async (req, res) => {
     const name = req.params.name;
     try {
         let user = await User.findOne({ name });
@@ -19,7 +19,7 @@ router.get("/:name", async (req, res) => {
     }
 });
 
-router.post("/", async (req, res) => {
+router.post("/user", async (req, res) => {
     try {
         const { name , todos } = req.body;
 

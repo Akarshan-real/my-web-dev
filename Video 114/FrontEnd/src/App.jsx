@@ -15,12 +15,13 @@ localStorage.setItem("userName", userName.trim());
 
 function App() {
 
-  const [select, setSelect] = useState(false);
-  const [notRefreshedPage, setNotRefreshedPage] = useState(true);
-  const [data, setData] = useState([]);
-  const [selectedIndexes, setSelectedIndexes] = useState([]);
-  const [editValue, setEditValue] = useState("");
-  const [editing, setEditing] = useState(false);
+  const [select, setSelect] = useState(false); // to see if the todos should be selected or not
+  const [notRefreshedPage, setNotRefreshedPage] = useState(true); // to check if page is refreshed or not
+  const [data, setData] = useState([]); // to store todos in an array
+  const [selectedIndexes, setSelectedIndexes] = useState([]); // to set the indexes of the todos selected at the moment
+  const [editValue, setEditValue] = useState(""); // to set the new value to the only todo selected 
+  const [lockedIndex, setLockedIndex] = useState(null); // stores the index the editing is happening on
+  const [editing, setEditing] = useState(false); // to enable or disable the state of a todo being edited
 
   // ----------------------------------------------------------------------------------------------
 
@@ -89,6 +90,12 @@ function App() {
     setSelect(true);
   };
 
+
+  useEffect(() => {
+    console.log("selectedIndexes:", selectedIndexes);
+  }, [selectedIndexes]);
+
+
   useEffect(() => {
     setEditValue(data[selectedIndexes[0]]);
   }, [selectedIndexes, data]);
@@ -101,15 +108,21 @@ function App() {
 
   const handelEdit = async () => {
     if (!editing) {
+      if (selectedIndexes.length !== 1) {
+        return;
+      }
+      setLockedIndex(selectedIndexes[0]);
       setEditing(true);
+      return;
     }
     else {
       const updatedTodosArray = data.map((item, index) =>
-        index === selectedIndexes[0] ? editValue : item
+        index === lockedIndex ? editValue : item
       );
       await saveTodosForBackend(updatedTodosArray);
       setData(updatedTodosArray);
       setEditing(false);
+      setLockedIndex(null);
       setSelectedIndexes([]);
       setSelect(false);
     }
@@ -160,8 +173,10 @@ function App() {
           </div>
 
           {/* CANCEL , EDIT , DELETE BUTTON */}
-          <div className={`absolute left-0 top-0 h-full flex gap-4 ${notRefreshedPage ? "opacity-0 pointer-events-none" : (select ? "slideIn" : "slideOut")
-            }`}>
+          <div className={`
+          absolute left-0 top-0 h-full flex gap-4 
+          ${notRefreshedPage ? "opacity-0 pointer-events-none" : (select ? "slideIn" : "slideOut")}
+          `}>
             <button
               type='button'
               className="operationButtons flex justify-center items-center cancel"
@@ -188,14 +203,15 @@ function App() {
         <div className='flex flex-col gap-3'>
           {data.map((element, index) => (
             <Todo
-              key={index}
-              info={element}
-              show={select}
-              onCheckChange={handelCheckChange}
-              index={index}
-              isEditing={editing && selectedIndexes.includes(index)}
-              setEditValue={setEditValue}
-              isSelected={selectedIndexes.includes(index)}
+              key={index} // mandatory key value
+              info={element} // the name of the todos collected from db
+              show={select} // the state if the todos's selector buttons should be showed or not
+              onCheckChange={handelCheckChange} // to set the index of those todos which are selected
+              index={index} // passing the index as index
+              isEditing={editing} // to see if the todo is being edited or not 
+              setEditValue={setEditValue} // to obtain the edited value from todo.jsx
+              isSelected={selectedIndexes.includes(index)} // to see which is selected i think i dunno
+              lockedIndex={lockedIndex} // locks the editing index
             />
           ))}
         </div>

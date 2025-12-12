@@ -1,7 +1,7 @@
 .outerTodo {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     height: fit-content; 
 }
@@ -53,6 +53,7 @@
 }
 
 .todoInfoBox {
+    position: relative !important;
     transition: font-size 300ms ease-in-out;
 }
 .todoInfoBox.checked {

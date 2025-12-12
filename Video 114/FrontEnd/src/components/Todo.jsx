@@ -1,17 +1,21 @@
 import React, { useState, useRef, useEffect } from "react"
 import './Todo.css'
 
-const Todo = ({ info, show, onCheckChange, index, isEditing, setEditValue, isSelected }) => {
+const Todo = ({ info, show, onCheckChange, index, isEditing, setEditValue, isSelected , lockedIndex}) => {
 
-    const [check, setCheck] = useState(false);
-    const inputRef = useRef(null);
-    const editRef = useRef(null);
-    const [val, setVal] = useState(info);
+    const inputRef = useRef(null); // this is the select box for the todo to enable select or not
+    const editRef = useRef(null); // the input which appears in the todo.jsx and send the edited value back to app.jsx db
+    const [val, setVal] = useState(info); // this is to display and store the value being edited and set to display and later send abck to app.jsx for db
 
+
+    
     useEffect(() => {
         if (isEditing) {
             editRef.current.value = info;
             editRef.current.focus();
+        }
+        else {
+
         }
     }, [isEditing, info])
 
@@ -27,14 +31,19 @@ const Todo = ({ info, show, onCheckChange, index, isEditing, setEditValue, isSel
 
 
     return (
-        <div className='outerTodo'>
+        <div className='outerTodo' onClick={(e) => e.stopPropagation()}>
             <span
-                className={`todoInfoBox ${isSelected ? "checked" : "unchecked"} relative flex-1 h-full`}>
+                className={`todoInfoBox ${isSelected ? "checked" : "unchecked"} flex-1 block relative`}
+            >
 
                 <form
-                    onSubmit={(e) => { e.preventDefault(); setEditValue(val) }}
+                    onSubmit={(e) => { 
+                        e.preventDefault(); 
+                        setEditValue(val); 
+                    }}
+                    onClick={(e) => e.stopPropagation()}
 
-                    className={`absolute left-0 w-full h-full ${isEditing ? "flex flex-wrap" : "hidden"}`}>
+                    className={`absolute z-10 left-0 top-0 w-full ${isEditing && lockedIndex === index ? "flex items-center" : "hidden"}`}>
                     <input
                         autoComplete="off"
                         className={`w-full`}
@@ -50,28 +59,33 @@ const Todo = ({ info, show, onCheckChange, index, isEditing, setEditValue, isSel
                     />
                 </form>
 
-                <span className={`${isEditing ? "opacity-0 pointer-events-none" : "opacity-100 "}`}>
+                <span className={`${isEditing && lockedIndex === index ? "opacity-0 pointer-events-none" : "opacity-100 "}`}>
                     {info}
                 </span>
             </span>
 
             <div
                 className={`todoCheckBoxContainer ${show ? "show" : ""}`}
-                onClick={() => { setCheck(prev => !prev); onCheckChange(index) }}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onCheckChange(index);
+                }}
             >
                 <input
                     ref={inputRef}
                     type="checkbox"
-                    checked={check}
+                    checked={isSelected}
                     name="todo-select"
                     onClick={(e) => e.stopPropagation()}
+                    onChange={() => onCheckChange(index)}
                     className={`todoCheckbox`}
                 />
                 <span
                     onCopy={(e) => e.preventDefault()}
-                    className={`todoChecked ${check ? "checked" : "unchecked"}`}
+                    className={`todoChecked 
+                    ${isSelected ? "checked" : "unchecked"}`} 
                 >
-                    {check ? "Checked" : "Check"}
+                    {isSelected ? "Checked" : "Check"}
                 </span>
             </div>
         </div>
