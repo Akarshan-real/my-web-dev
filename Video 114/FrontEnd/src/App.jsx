@@ -1,12 +1,13 @@
+// App.jsx
 import { useState, useEffect, useRef } from 'react'
 import viteLogo from '/vite.svg'
 import Navbar from './components/Navbar'
 import Todo from './components/Todo'
 import Label from './components/Label'
 import './App.css'
+
 const API = import.meta.env.VITE_API_URL;
 let userName = localStorage.getItem("userName");
-
 userName = prompt(`Enter you name , please!`)
 while (!userName || userName.trim() === '') {
   userName = prompt("Enter a valid name which is not blank");

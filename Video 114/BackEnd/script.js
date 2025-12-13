@@ -1,3 +1,4 @@
+// script.js
 import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
@@ -12,7 +13,7 @@ app.use(cors());
 app.set('view engine','ejs');
 app.use(express.json());
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.get('/', (req,res)=>{
   res.render('index');

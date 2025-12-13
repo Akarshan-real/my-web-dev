@@ -1,9 +1,10 @@
+// todoRoutes.js
 import express from 'express'
 import User from '../models/Todo.js'
 
 const router = express.Router();
 
-router.get("/user/:name", async (req, res) => {
+router.get("/todos/:name", async (req, res) => {
     const name = req.params.name;
     try {
         let user = await User.findOne({ name });
@@ -19,19 +20,15 @@ router.get("/user/:name", async (req, res) => {
     }
 });
 
-router.post("/user", async (req, res) => {
+router.post("/todos", async (req, res) => {
     try {
         const { name , todos } = req.body;
 
-        let user = await User.findOne({ name });
-
-        if (!user) {
-            user = await User.create({ name, todos });
-        }
-        else {
-            user.todos = todos;
-            await user.save();
-        }
+        const user = await User.findOneAndUpdate(
+            {name},
+            {todos : todos},
+            {new : true}
+        );
 
         res.json(user);
     }
