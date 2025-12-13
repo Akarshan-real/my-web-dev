@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import './Todo.css'
 
-const Todo = ({ info, show, onCheckChange, index, isEditing, setEditValue, isSelected , lockedIndex}) => {
+const Todo = ({ info, show, onCheckChange, index, isEditing, setEditValue, isSelected , lockedIndex }) => {
 
     const inputRef = useRef(null); // this is the select box for the todo to enable select or not
     const editRef = useRef(null); // the input which appears in the todo.jsx and send the edited value back to app.jsx db

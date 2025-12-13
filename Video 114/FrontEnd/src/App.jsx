@@ -8,11 +8,14 @@ import './App.css'
 
 const API = import.meta.env.VITE_API_URL;
 let userName = localStorage.getItem("userName");
-userName = prompt(`Enter you name , please!`)
-while (!userName || userName.trim() === '') {
-  userName = prompt("Enter a valid name which is not blank");
-};
-localStorage.setItem("userName", userName.trim());
+if (!userName) {
+  userName = prompt(`Enter you name , please!`)
+  while (!userName || userName.trim() === '') {
+    userName = prompt("Enter a valid name which is not blank");
+  };
+  userName = userName.trim().toLowerCase();
+  localStorage.setItem("userName", userName.trim());
+}
 
 function App() {
 
@@ -29,7 +32,7 @@ function App() {
   useEffect(() => {
     (async function () {
       try {
-        const response = await fetch(`${API}/api/todos/${userName}`);
+        const response = await fetch(`${API}/api/todos/${userName}`,{"content-type" : "application/json" , "frontend-api" : import.meta.env.VITE_API_KEY});
         if (response.ok) {
           const user = await response.json();
           setData(user.todos || []);
@@ -48,7 +51,7 @@ function App() {
     try {
       await fetch(`${API}/api/todos`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" , 'frontend-api' : import.meta.env.VITE_API_KEY},
         body: JSON.stringify({ name: userName, todos: updatedTodosArray })
       })
     }

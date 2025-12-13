@@ -19,9 +19,18 @@ app.get('/', (req,res)=>{
   res.render('index');
 });
 
-app.use("/api", router);
+const checkApiKeyMiddleware = (req,res,next) => {
+  const incomingApiKey =req.headers['frontend-api'];
+  const ourApiKey = process.env.API;
+  if (incomingApiKey === ourApiKey) {
+    next();
+  }
+  else {
+    res.status(403).json({msg:"Wrong api key sent"});
+  }
+}
 
-
+app.use("/api", checkApiKeyMiddleware ,  router);
 
 (async function startServer() {
   try {
