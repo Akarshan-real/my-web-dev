@@ -43,7 +43,7 @@ li:hover::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(97, 97, 97, 0.84);
+    background-color: rgba(72, 72, 72, 0.84);
     transition: opacity 300ms ease-in;
 }
 .floatingTodos.display-off {

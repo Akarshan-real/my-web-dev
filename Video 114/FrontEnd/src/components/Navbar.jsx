@@ -19,7 +19,7 @@ const Navbar = ({ todos }) => {
       </div>
 
       <div className={`floatingTodos ${show ? "display-on" : "display-off"}`}>
-        <div className={`flex flex-col gap-4 w-[70%] h-[70%] bg-[#292929] rounded-2xl py-6`}>
+        <div className={`flex flex-col gap-4 w-[70%] h-[70%] bg-[#212121] rounded-2xl py-6 border-3 border-white`}>
           {todos.map((element, index) => (
             <Navbar_todos
               key={index}
