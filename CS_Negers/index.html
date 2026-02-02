@@ -80,14 +80,14 @@
         <div class="question">
             <input name="" id="question" placeholder="What's your question ?😎"></input>
         </div>
-        <button>Get answer😋</button>
+        <button class='button'>Get answer😋</button>
     </div>
     <audio src="./Arya das is a nigger.mp3" style="display: none;" id="niga"></audio>
     <script>
-        let audio = document.getElementById("niga");
-        let button = document.querySelector("button");
+        let audio_play = document.getElementById("niga");
+        let button = document.querySelector(".button");
         button.addEventListener("click", (e) => {
-            if (document.querySelector("input").value == "What is Arya Das ?".toLocaleLowerCase().trim()) {
+            if (document.querySelector("input").value === "What is Arya Das ?".toLocaleLowerCase().trim()) {
                 audio.play();
             }
         })
