@@ -1,4 +1,3 @@
-
 let display = document.querySelector('.display');
 let blinking = setInterval(() => {
     if (display.innerText === "|") {

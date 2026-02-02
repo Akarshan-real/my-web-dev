@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-let myPath = "E:\\Sigma Web Dev\\Video 91";
+let myPath = "C:\\Users\\ADMIN\\Downloads\\";
 let collection = await fs.readdir(myPath);
 
 clutter(collection, myPath);
